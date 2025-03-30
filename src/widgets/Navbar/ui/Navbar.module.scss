@@ -1,0 +1,54 @@
+.navbar {
+    background-color: #000;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    transition: all 0.3s ease;
+    padding: 1.5rem 0;
+}
+
+.shrink {
+    padding: 0.5rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    transition: font-size 0.3s ease;
+}
+
+.shrink .logo {
+    font-size: 1.25rem;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+
+    &:hover {
+        color: #d63384;
+    }
+}
+
+.authBtn {
+    margin-left: 1rem;
+}

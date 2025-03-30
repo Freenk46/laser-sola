@@ -1,0 +1,23 @@
+.faqSearch {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 2rem auto; // ცენტრში
+    position: relative;
+}
+
+.input {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    transition: border-color 0.3s ease;
+
+    &:focus {
+        outline: none;
+        border-color: #e83e8c;
+        box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.2);
+    }
+}

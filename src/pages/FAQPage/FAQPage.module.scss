@@ -1,0 +1,27 @@
+.faqPage {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #111;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+
+}
+
+/* Optional responsive adjustment */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+}
