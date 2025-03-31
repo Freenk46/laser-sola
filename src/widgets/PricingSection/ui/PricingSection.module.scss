@@ -1,0 +1,103 @@
+.pricing {
+    width: 100vw;
+    padding: 4rem 6vw;
+    background-color: #fff;
+    box-sizing: border-box;
+
+    h1,
+    h2 {
+        text-align: center;
+        font-family: 'Playfair Display', serif;
+        line-height: 1.2;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+
+        @media (max-width: 768px) {
+            font-size: 1.8rem;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 1.5rem;
+        }
+
+
+
+    }
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 2rem;
+
+    button {
+        background: none;
+        border: none;
+        font-size: 1rem;
+        padding-bottom: 0.5rem;
+        cursor: pointer;
+        color: #444;
+        position: relative;
+
+        &.activeTab {
+            color: black;
+            font-weight: bold;
+        }
+
+        &.activeTab::after {
+            content: '';
+            position: absolute;
+            height: 2px;
+            background: black;
+            width: 100%;
+            left: 0;
+            bottom: -1px;
+        }
+    }
+}
+
+.cards {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #fde7c4;
+    padding: 1.5rem;
+    border-radius: 4px;
+    width: 220px;
+    box-sizing: border-box;
+
+    h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .price {
+        margin-bottom: 1rem;
+
+        .current {
+            color: #c00;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .original {
+            text-decoration: line-through;
+            color: #888;
+        }
+    }
+
+    select {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid black;
+        font-weight: bold;
+        cursor: pointer;
+    }
+}

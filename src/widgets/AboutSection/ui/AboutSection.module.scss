@@ -1,0 +1,52 @@
+.about {
+    display: flex;
+    width: 100vw;
+    padding: 4rem 6vw;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    background: #fff;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+}
+
+.text {
+    flex: 1;
+
+    h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        color: #444;
+    }
+
+    button {
+        margin-top: 1rem;
+        padding: 0.75rem 1.5rem;
+        border: 1px solid black;
+        background: transparent;
+        font-weight: bold;
+        cursor: pointer;
+    }
+}
+
+.image {
+    flex: 1;
+
+    img {
+        width: 100%;
+        max-width: 450px;
+        border-radius: 6px;
+    }
+}
