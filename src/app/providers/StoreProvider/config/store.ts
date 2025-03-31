@@ -3,6 +3,7 @@ import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { loginReducer } from 'features/AuthByUsername';
 import { StateSchema } from './StateSchema';
+import authReducer from "features/AuthByUsername/model/slice/authSlice";
 import registerUserReducer from "features/RegisterUser/model/slice/registerSlice";
 
 export function createReduxStore(initialState?: StateSchema) {
@@ -11,6 +12,7 @@ export function createReduxStore(initialState?: StateSchema) {
         user: userReducer,
         loginForm: loginReducer,
         registerUser: registerUserReducer,
+        auth: authReducer,
     };
 
     return configureStore<StateSchema>({
@@ -19,3 +21,5 @@ export function createReduxStore(initialState?: StateSchema) {
         preloadedState: initialState,
     });
 }
+
+

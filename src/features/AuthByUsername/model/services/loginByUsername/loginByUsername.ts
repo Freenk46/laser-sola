@@ -1,30 +1,41 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { User, userActions } from 'entities/User';
-import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { User } from "../../types";
+import { setAccessToken } from "../../services/authService";
 
-interface LoginByUsernameProps {
-    username: string;
+interface LoginParams {
+    email: string;
     password: string;
 }
 
-export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { rejectValue: string }>(
-    'login/loginByUsername',
-    async (authData, thunkAPI) => {
+export const loginByUsername = createAsyncThunk<User, LoginParams, { rejectValue: string }>(
+    "auth/loginByUsername",
+    async ({ email, password }, thunkAPI) => {
         try {
-            const response = await axios.post<User>('http://localhost:8000/login', authData);
+            const response = await fetch("/api/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, password }),
+            });
 
-            if (!response.data) {
-                throw new Error();
+            if (!response.ok) {
+                const error = await response.json();
+                return thunkAPI.rejectWithValue(error.message || "Login failed");
             }
 
-            localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
-            thunkAPI.dispatch(userActions.setAuthData(response.data));
+            const data = await response.json();
 
-            return response.data;
-        } catch (e) {
-            console.log(e);
-            return thunkAPI.rejectWithValue('error');
+            // Save token locally
+            setAccessToken(data.accessToken);
+
+            return {
+                id: data.user.id,
+                name: data.user.name,
+                email: data.user.email,
+            };
+        } catch (err) {
+            return thunkAPI.rejectWithValue("Network error");
         }
-    },
+    }
 );

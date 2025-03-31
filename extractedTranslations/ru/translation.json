@@ -1,8 +1,10 @@
 {
   "About": "About",
+  "Auth": "Auth",
   "Blog": "Blog",
   "Contact": "Contact",
   "Cosmetic Injections": "Cosmetic Injections",
+  "FAQ": "FAQ",
   "Facials": "Facials",
   "Home": "Home",
   "Laser Hair Removal": "Laser Hair Removal",
@@ -16,6 +18,7 @@
   "Services": "Services",
   "Shop": "Shop",
   "Skin Treatments": "Skin Treatments",
+  "auth": "auth",
   "decrement": "decrement",
   "increment": "increment",
   "throw error": "throw error",

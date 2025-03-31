@@ -50,6 +50,8 @@ export const Navbar = ({ className }: NavbarProps) => {
                     <a href="/about" className={cls.link}>{t('About')}</a>
                     <a href="/blog" className={cls.link}>{t('Blog')}</a>
                     <a href="/contact" className={cls.link}>{t('Contact')}</a>
+                    <a href="/FAQ" className={cls.link}>{t('FAQ')}</a>
+                    <a href="/auth" className={cls.link}>{t('Auth')}</a>
 
                     {authData ? (
                         <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogout} className={cls.authBtn}>

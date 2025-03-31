@@ -8,6 +8,7 @@ import { PricingSection } from 'widgets/PricingSection';
 import { AboutSection } from 'widgets/AboutSection';
 import { BenefitsSection } from 'widgets/BenefitsSection/ui/BenefitsSection';
 
+
 const MainPage = () => {
     const { t } = useTranslation();
     const [value, setValue] = useState('');

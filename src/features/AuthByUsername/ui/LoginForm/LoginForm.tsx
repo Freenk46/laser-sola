@@ -18,7 +18,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const {
-        username, password, error, isLoading,
+        email, password, error, isLoading,
     } = useSelector(getLoginState);
 
     const onChangeUsername = useCallback((value: string) => {
@@ -30,8 +30,8 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
     }, [dispatch]);
 
     const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ username, password }));
-    }, [dispatch, password, username]);
+        dispatch(loginByUsername({ email, password }));
+    }, [dispatch, password, email]);
 
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
@@ -43,8 +43,8 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
                 className={cls.input}
                 placeholder={t('Введите username')}
                 onChange={onChangeUsername}
-                value={username}
-            />
+                value={email}
+            />s
             <Input
                 type="text"
                 className={cls.input}
