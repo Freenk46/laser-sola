@@ -3,12 +3,14 @@ import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { loginReducer } from 'features/AuthByUsername';
 import { StateSchema } from './StateSchema';
+import registerUserReducer from "features/RegisterUser/model/slice/registerSlice";
 
 export function createReduxStore(initialState?: StateSchema) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
         user: userReducer,
         loginForm: loginReducer,
+        registerUser: registerUserReducer,
     };
 
     return configureStore<StateSchema>({
