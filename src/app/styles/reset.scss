@@ -1,13 +1,42 @@
-* {
+/* Reset.scss */
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    font-size: 100%; // 16px — საშუალებას აძლევს rem-ს იყოს კონტროლირებადი
+    scroll-behavior: smooth;
+}
+
+body {
+
+    font-family: var(--font-family-main);
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
 }
 
 input,
 button,
 textarea,
 select {
-    margin: 0;
     font: inherit;
+    background: none;
+    border: none;
+    outline: none;
 }

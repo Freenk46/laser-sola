@@ -1,0 +1,144 @@
+.stackShowcase {
+    background-color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        width: 100%;
+
+
+
+        @media (min-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+        }
+    }
+
+    .image {
+        border-right: 1px solid #000;
+
+        img {
+            width: 100%;
+
+            object-fit: cover;
+
+        }
+    }
+
+    .content {
+        text-align: center;
+
+        @media (min-width: 768px) {
+            text-align: left;
+        }
+
+        .title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e1e1e;
+            margin-bottom: 2rem;
+
+            @media (min-width: 768px) {
+                font-size: 2.5rem;
+            }
+        }
+
+        .description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+            margin: 1rem 0;
+
+            @media (min-width: 768px) {
+                font-size: 1.125rem;
+            }
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+
+
+            .primaryBtn {
+
+                text-decoration: none;
+                position: relative;
+                white-space: nowrap;
+                position: relative;
+                cursor: pointer;
+                padding: 0.75rem 1.5rem;
+                background-color: #000;
+                color: #fff;
+                font-weight: 600;
+                border-radius: 4px;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 3px;
+                    background-color: #ffffff;
+                    transform: scaleX(0);
+                    transform-origin: left;
+                    transition: transform 0.3s ease;
+                }
+
+                &:hover::after {
+                    transform: scaleX(1);
+                }
+
+                &:hover {
+                    //color: #b4b4b4;
+                }
+            }
+
+            .secondaryBtn {
+                text-decoration: none;
+                position: relative;
+                white-space: nowrap;
+                position: relative;
+                cursor: pointer;
+                padding: 0.75rem 1.5rem;
+                background-color: #fff;
+                color: #000;
+                font-weight: 600;
+                border: 1px solid #000;
+                border-radius: 4px;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 3px;
+                    background-color: #000000;
+                    transform: scaleX(0);
+                    transform-origin: left;
+                    transition: transform 0.3s ease;
+                }
+
+                &:hover::after {
+                    transform: scaleX(1);
+                }
+
+                &:hover {
+                    // color: #3f3f3f;
+                }
+
+            }
+
+
+        }
+    }
+}

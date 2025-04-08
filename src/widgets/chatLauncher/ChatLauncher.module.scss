@@ -1,0 +1,22 @@
+.launcher {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 52px;
+    height: 52px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    z-index: 9999;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background-color: #222;
+    }
+}

@@ -22,7 +22,7 @@ const testimonials = [
 
 export const Testimonials = () => {
     return (
-        <MotionWrapper tag='section' initial={{ opacity: 0, x: -300 }} className={styles.testimonials}>
+        <section className={styles.testimonials}>
 
             <h2>What our customers are saying</h2>
             <div className={styles.cards}>
@@ -41,6 +41,6 @@ export const Testimonials = () => {
                 </div>
             </div>
 
-        </MotionWrapper>
+        </section>
     );
 };

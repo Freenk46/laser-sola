@@ -1,24 +1,40 @@
-@import "reset";
-@import "variables/global";
-@import "themes/normal";
-@import "themes/dark";
-
-.app,
-.app_modal {
-    font: var(--font-m);
-    color: var(--primary-color);
-}
+/* index.scss */
+@import 'reset';
+@import 'variables/global';
+@import 'themes/normal';
+@import 'themes/dark';
+@import "layout";
 
 .app {
+    font: var(--font-m);
+    color: var(--primary-color);
     background: var(--bg-color);
     min-height: 100vh;
+
+    &.app_modal {
+        overflow: hidden;
+    }
 }
 
 .content-page {
     display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+
+    @include respond-to(md) {
+        flex-direction: row;
+    }
 }
 
 .page-wrapper {
     flex-grow: 1;
-    padding: 20px;
+    padding: var(--space-md);
+
+    @include respond-to(md) {
+        padding: var(--space-lg);
+    }
+
+    max-width: 100%;
+    overflow-x: hidden;
+
 }

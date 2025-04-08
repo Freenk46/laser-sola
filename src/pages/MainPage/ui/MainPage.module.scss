@@ -1,0 +1,15 @@
+// MainPage.module.scss
+.main-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    padding: var(--space-md);
+
+    @include respond-to(md) {
+        padding: var(--space-lg);
+    }
+
+    section {
+        scroll-margin-top: var(--navbar-height); // anchor scroll fix
+    }
+}

@@ -1,0 +1,170 @@
+.headerMain {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    background-color: #fff;
+    border-bottom: 1px solid #000;
+    position: sticky;
+    top: 0;
+    z-index: 101;
+    height: 75px;
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    font-weight: 500;
+
+
+
+    .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fefefe;
+        border-top: 1px solid #eee;
+        padding: 2rem;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+        z-index: 10;
+    }
+
+
+    // ✅ Flex დაგვრჩება ყველა ზომისთვის
+
+    .left {
+        flex: 1;
+        display: flex;
+        align-items: center;
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.15rem;
+            color: #111;
+        }
+    }
+
+    .center {
+        flex: 2;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+
+        .navItem {
+            color: #111;
+            text-decoration: none;
+            position: relative;
+            white-space: nowrap;
+            cursor: pointer;
+            padding-bottom: 0.2rem;
+
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: #d4a373;
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 0.3s ease;
+            }
+
+            &:hover::after {
+                transform: scaleX(1);
+            }
+
+            &:hover {
+                color: #d4a373;
+            }
+        }
+    }
+
+    .right {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        gap: 1.2rem;
+        color: #111;
+
+        svg {
+            cursor: pointer;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #d4a373;
+            }
+        }
+    }
+
+    // ✅ ბურგერი — default hidden
+    .burger {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.6rem;
+        cursor: pointer;
+        color: #111;
+        margin-right: 1rem;
+    }
+
+    // ✅ Mobile მენიუ overlay
+    .mobileMenu {
+        position: fixed;
+        inset: 0;
+        background: white;
+        z-index: 109;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        padding: 2rem;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+
+            li {
+                font-size: 1.4rem;
+                font-weight: 500;
+                margin: 1rem 0;
+                cursor: pointer;
+                transition: color 0.2s ease;
+
+                &:hover {
+                    color: #d4a373;
+                }
+            }
+        }
+    }
+
+    .close {
+        position: absolute;
+        top: 1.2rem;
+        right: 1.5rem;
+        background: none;
+        border: none;
+        font-size: 1.6rem;
+        cursor: pointer;
+        color: #111;
+    }
+
+    // ✅ Responsive
+    @media (max-width: 768px) {
+
+        .center {
+            display: none;
+        }
+
+        .burger {
+            display: block;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+import { useState } from 'react';
+import ChatWidget from './ChatWidget';
+import styles from './ChatLauncher.module.scss';
+import { MessageCircle } from 'lucide-react';
+
+const ChatLauncher = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <>
+            {isOpen && <ChatWidget onClose={() => setIsOpen(false)} />}
+            <button className={styles.launcher} onClick={() => setIsOpen(true)}>
+                <MessageCircle size={20} />
+            </button>
+        </>
+    );
+};
+
+export default ChatLauncher;

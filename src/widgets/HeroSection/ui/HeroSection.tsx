@@ -1,10 +1,13 @@
 import React from 'react';
 import styles from './HeroSection.module.scss';
+import { Button } from './Button/Button';
 
 interface HeroSectionProps {
     image: string;
     title: string;
     description: string;
+    textBackgroundColor?: string;
+    navBackgroundColor?: string;
     primaryBtn: {
         text: string;
         onClick?: () => void;
@@ -24,6 +27,8 @@ export const HeroSection = ({
     description,
     primaryBtn,
     secondaryBtn,
+    textBackgroundColor = '#fff',
+    navBackgroundColor = '#fff',
     navLinks = [],
 }: HeroSectionProps) => {
     const handleScroll = (id: string) => {
@@ -34,42 +39,49 @@ export const HeroSection = ({
     };
 
     return (
-        <section className={styles.hero}>
-            <div className={styles.imageBlock}>
-                <img src={image} alt="Hero" />
-            </div>
+        <section
+            className={styles.hero}
 
-            <div className={styles.textBlock}>
-                <h1>{title}</h1>
-                <p>{description}</p>
+        >
+            <div className={styles.heroInner}>
+                <div className={styles.imageBlock}>
+                    <img src={image} alt="Hero" />
+                </div>
 
-                <div className={styles.buttons}>
-                    {primaryBtn.href ? (
-                        <button className={styles.primary} onClick={() => handleScroll(primaryBtn.href!)}>
-                            {primaryBtn.text}
-                        </button>
-                    ) : (
-                        <button className={styles.primary} onClick={primaryBtn.onClick}>
-                            {primaryBtn.text}
-                        </button>
-                    )}
+                <div className={styles.textBlock} style={{ backgroundColor: textBackgroundColor }}>
+                    <h1>{title}</h1>
+                    <p>{description}</p>
 
-                    {secondaryBtn?.href ? (
-                        <button className={styles.secondary} onClick={() => handleScroll(secondaryBtn.href!)}>
-                            {secondaryBtn.text}
-                        </button>
-                    ) : (
-                        secondaryBtn?.onClick && (
-                            <button className={styles.secondary} onClick={secondaryBtn.onClick}>
+                    <div className={styles.buttons}>
+                        {primaryBtn && (
+                            <Button
+                                variant="primary"
+                                size="md"
+                                href={primaryBtn.href}
+                                onClick={primaryBtn.onClick}
+                            >
+                                {primaryBtn.text}
+                            </Button>
+                        )}
+                        {secondaryBtn && (
+                            <Button
+                                variant="secondary"
+                                size="md"
+                                href={secondaryBtn.href}
+                                onClick={secondaryBtn.onClick}
+                            >
                                 {secondaryBtn.text}
-                            </button>
-                        )
-                    )}
+                            </Button>
+                        )}
+                    </div>
                 </div>
             </div>
 
             {navLinks.length > 0 && (
-                <nav className={styles.nav}>
+                <nav
+                    className={styles.nav}
+                    style={{ backgroundColor: navBackgroundColor }}
+                >
                     {navLinks.map((link) => (
                         <button key={link.href} onClick={() => handleScroll(link.href)}>
                             {link.label}

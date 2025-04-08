@@ -1,0 +1,90 @@
+.section {
+    background-color: #202d3c;
+    color: #fdea41;
+
+    // ✅ სიმაღლის ზრდა
+
+
+    @media (min-width: 640px) {
+        padding: 5rem 2rem;
+    }
+
+    @media (min-width: 1024px) {
+        padding: 6rem 5rem;
+    }
+}
+
+.wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+
+    @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    &.reverse {
+        direction: rtl;
+
+        >* {
+            direction: ltr;
+        }
+    }
+}
+
+.videoWrapper video {
+    width: auto;
+    height: auto;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+
+
+    @media (min-width: 768px) {
+        margin: auto;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 1.5rem; // ✅ ელემენტებს შორის დაშორება
+}
+
+.heading {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fdea41;
+
+    @media (min-width: 640px) {
+        font-size: 2.5rem;
+    }
+
+    @media (min-width: 768px) {
+        font-size: 3rem;
+    }
+}
+
+.paragraph {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #fdea41;
+}
+
+.cta {
+    color: #fdea41;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s ease;
+    margin-bottom: 1rem;
+
+    &:hover {
+        color: #fde68a;
+    }
+}

@@ -1,0 +1,52 @@
+.marqueeWrapper {
+    background-color: #bfa178;
+    overflow: hidden;
+    border-top: 2px solid #1d2a3a;
+    border-bottom: 2px solid #1d2a3a;
+
+}
+
+.marquee {
+    display: inline-flex;
+    white-space: nowrap;
+    gap: 3rem;
+    padding: 1rem 0;
+    animation: scroll-left linear infinite;
+
+    &.reverse {
+        animation-name: scroll-right;
+    }
+}
+
+.city {
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #1d2a3a;
+}
+
+.highlight {
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+}
+
+@keyframes scroll-left {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scroll-right {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}

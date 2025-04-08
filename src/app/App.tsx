@@ -2,11 +2,13 @@ import React, { Suspense, useEffect } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/providers/router';
-import { Navbar } from 'widgets/Navbar';
-import { Sidebar } from 'widgets/Sidebar';
 import { useDispatch } from 'react-redux';
 import { userActions } from 'entities/User';
 import Footer from 'shared/ui/Footer/Footer';
+
+import TopBar from 'widgets/TopBar/TopBar';
+import HeaderMain from 'widgets/HeaderMain/HeaderMain';
+import ChatLauncher from 'widgets/chatLauncher/ChatLauncher';
 
 function App() {
     const { theme } = useTheme();
@@ -19,11 +21,13 @@ function App() {
     return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
-                <Navbar />
+                <TopBar />
+                <HeaderMain />
                 <div className="content-page">
 
                     <AppRouter />
                 </div>
+                <ChatLauncher />
                 <Footer />
             </Suspense>
         </div>

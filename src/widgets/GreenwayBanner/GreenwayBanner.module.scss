@@ -1,0 +1,49 @@
+.banner {
+    display: flex;
+    background-color: #ffffff;
+    color: #000;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'BPG Classic Medium', sans-serif;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.typing::after {
+    content: '|';
+    animation: blink 1s step-start infinite;
+    margin-left: 4px;
+    color: #000;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.badge {
+    background-color: #000;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.4rem 1rem;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+
+    // optional — add spacing between ✔ და ტექსტი
+    &::first-letter {
+        margin-right: 0.4rem;
+    }
+}

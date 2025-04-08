@@ -16,25 +16,25 @@ interface BenefitsSectionProps {
 
 export const BenefitsSection = ({ title, image, items }: BenefitsSectionProps) => {
     return (
-        <MotionWrapper tag='div' initial={{ opacity: 0, x: 300 }} >
-            <section className={styles.benefits} id="benefits">
-                <h2>{title}</h2>
 
-                <div className={styles.content}>
-                    <div className={styles.image}>
-                        <img src={image} alt="Laser Hair Removal" />
-                    </div>
+        <section className={styles.benefits} id="benefits">
+            <h2>{title}</h2>
 
-                    <div className={styles.items}>
-                        {items.map((item, idx) => (
-                            <div key={idx} className={styles.item}>
-                                <h3>{item.title}</h3>
-                                <p>{item.text}</p>
-                            </div>
-                        ))}
-                    </div>
+            <div className={styles.content}>
+                <div className={styles.image}>
+                    <img src={image} alt="Laser Hair Removal" />
                 </div>
-            </section>
-        </MotionWrapper>
+
+                <div className={styles.items}>
+                    {items.map((item, idx) => (
+                        <div key={idx} className={styles.item}>
+                            <h3>{item.title}</h3>
+                            <p>{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
     );
 };

@@ -1,0 +1,59 @@
+.banner {
+    background-color: #000;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    margin-top: 40px;
+
+    @media (max-width: 640px) {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+.text {
+    font-size: 1.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+
+    .cursor {
+        display: inline-block;
+        animation: blink 1s step-start infinite;
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.logos {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.badge {
+    padding: 0.4rem 1rem;
+    background-color: #fff;
+    font-weight: 600;
+    color: #000;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.text .cursor {
+    animation: blink 1s step-start infinite;
+    margin-left: 4px;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}

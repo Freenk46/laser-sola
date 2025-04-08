@@ -1,5 +1,14 @@
+@font-face {
+    font-family: 'BPG Classic Medium';
+    src: url('/public/fonts/bpg-classic-medium-webfont.ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
-    --font-family-main: consolas, "Times New Roman", serif;
+
+    --font-family-main: 'BPG Classic Medium', consolas, "Times New Roman", serif;
     --font-size-m: 16px;
     --font-line-m: 24px;
     --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
@@ -9,6 +18,8 @@
     --font-size-xl: 32px;
     --font-line-xl: 40px;
     --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+
+
 
     // Размеры
     --navbar-height: 50px;
@@ -22,4 +33,20 @@
     --overlay-color: rgba(0 0 0 / 60%);
     --red-light: #ff00;
     --red-dark: #ce0505;
+}
+
+// _media.scss ან პირდაპირ global.scss-ში
+
+$breakpoints: (
+    xs: 320px,
+    sm: 480px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px
+);
+
+@mixin respond-to($breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+    }
 }

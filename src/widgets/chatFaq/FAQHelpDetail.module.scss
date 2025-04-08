@@ -1,0 +1,58 @@
+.detailContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    color: #000;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #000;
+    color: #fff;
+    padding: 1rem;
+    font-weight: 500;
+}
+
+.backButton {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 0.5rem;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    flex: 1;
+    padding: 0 0.5rem;
+}
+
+.rightSpacer {
+    width: 18px;
+}
+
+.answer {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem 1.5rem;
+    line-height: 1.7;
+    font-size: 0.95rem;
+    color: #111;
+    background: #fff;
+
+    p+p {
+        margin-top: 1.2rem;
+    }
+}
