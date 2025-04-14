@@ -21,6 +21,9 @@
   "auth": "auth",
   "decrement": "decrement",
   "increment": "increment",
+  "mainPage": {
+    "ourStores": "ourStores"
+  },
   "throw error": "throw error",
   "Введите username": "Введите username",
   "Введите пароль": "Введите пароль",

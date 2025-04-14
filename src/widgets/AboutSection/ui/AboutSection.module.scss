@@ -3,57 +3,78 @@
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: center;
-    max-width: 1280px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 4rem 1rem;
+    margin-top: -50px;
+    background: #ffffff;
 
+  
     @media (max-width: 1024px) {
-        grid-template-columns: 1fr;
-
-        // ✅ დავაბრუნოთ ბლოკების ორდერი: სურათი ზემოთ
-        .image {
-            order: -1;
-        }
-
-        text-align: center;
+      grid-template-columns: 1fr;
+  
+      .image {
+        order: -1;
+      }
+  
+      text-align: center;
     }
-}
-
-.text {
+  
+    @media (max-width: 768px) {
+      gap: 1.5rem;
+      padding: 3rem 1.5rem;
+    }
+  
+    @media (max-width: 480px) {
+      padding: 2rem 1rem;
+    }
+  }
+  
+  .text {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
+    gap: 1.25rem;
+  
     @media (max-width: 1024px) {
-        align-items: center;
+      align-items: center;
     }
-}
-
-.title {
+  }
+  
+  .title {
     font-size: 2rem;
     font-weight: 700;
-    line-height: 1.3;
+    line-height: 1.8;
     margin-bottom: 1rem;
-
+  
     @media (min-width: 768px) {
-        font-size: 2.5rem;
+      font-size: 2.5rem;
+      
     }
-}
-
-.description {
+  
+    @media (max-width: 480px) {
+      font-size: 1.6rem;
+    }
+  }
+  
+  .description {
     font-size: 1rem;
     color: #444;
-    line-height: 1.6;
+    line-height: 2;
     max-width: 560px;
-    margin-bottom: 1.5rem;
-
+  
     @media (max-width: 1024px) {
-        max-width: 100%;
-        margin: 0 auto 1.5rem auto;
+      max-width: 100%;
+      line-height: 2;
+      margin: 0 auto;
     }
-}
-
-.button {
+  
+    @media (max-width: 480px) {
+      font-size: 0.95rem;
+    }
+  }
+  
+  .button {
     background-color: #000;
     color: #fff;
     border: none;
@@ -65,21 +86,34 @@
     width: fit-content;
     transition: background-color 0.2s ease;
     margin-bottom: 1rem;
-
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  
     &:hover {
-        background-color: #333;
+      background-color: #333;
     }
-
+  
     @media (max-width: 1024px) {
-        margin: 0 auto 1rem auto;
+      margin: 0 auto 1rem auto;
     }
-}
+  
+    .arrow {
+      transition: transform 0.2s ease;
+    }
+  
+    &:hover .arrow {
+      transform: translateX(4px);
+    }
+  }
+  
+  .image {
 
-.image {
     img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-        object-fit: cover;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+   
     }
-}
+  }

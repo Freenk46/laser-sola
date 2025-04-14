@@ -1,3 +1,4 @@
+import { useGetPageContentQuery } from 'features/content/model/api/contentApi';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { GreenwayBanner } from 'widgets/GreenwayBanner/GreenwayBanner';
@@ -6,67 +7,68 @@ import { LaserHeroSection } from 'widgets/LaserHeroSection/LaserHeroSection';
 import { PaymentBanner } from 'widgets/PaymentBanner/PaymentBanner';
 import ScrollingStores from 'widgets/ScrollingStores/ScrollingStores';
 import { SkinTreatmentSection } from 'widgets/SkinTreatmentSection/SkinTreatmentSection';
+import styles from './MainPage.module.scss';
 
 import { StackShowcase } from 'widgets/StackShowcase/StackShowcase';
 
 
 const MainPage = () => {
+
+    const { data, isLoading } = useGetPageContentQuery("home");
     const { t } = useTranslation();
     const [value, setValue] = useState('');
+    if (isLoading || !data) return null
+
+
 
     const onChange = (val: string) => {
         setValue(val);
-    };
+    }
 
 
     return (
-        <div className="main-page">
-
-
-
-
-            <HighlightSection
-                videoSrc="/media/123.mp4"
-                heading="საოცარი ხარისხი"
-                paragraphs={[
-                    "ჩვენი აღჭურვილობა საუკეთესოა.",
-                    "We ensure every detail is pixel perfect.",
-                ]}
-                ctaText="Learn more"
-                ctaHref="/about"
-                reverse={true} // ✅ აქ ვიდეო წავა მარჯვნივ და ტექსტი მარცხნივ
-            />
-            <ScrollingStores
-                items={[
-                    'ლაზერული ეპილაცია', 'კანის მკურნალობა', 'ბათუმი', 'სხეულის კონტურის ფორმირება',
-                    'ჰიდრაფეიშალი', 'აკნეს მოგვარება', 'პიგმენტაციის კორექცია', 'ბათუმი', 'Greenway', 'კოსმეტიკური ინიექციები',
-                ]}
-                highlight="OUR STORES"
-                speed={20}
-                direction="left"
-            />
-            <LaserHeroSection />
-
-
-            <PaymentBanner />
-            <SkinTreatmentSection />
-
-
-            <GreenwayBanner />
-            <StackShowcase
-
-                title="შენი კანის მოვლა"
-                description="ჩვენ დაგეხმარებით შექმნაში პერსონალური კანის მოვლის რუტინის, რომელიც შეესაბამება შენს კანის ტიპს, ტონსა და მიზნებს. გაუწიე შენს თავს ზრუნვა, რაც იმსახურებს."
-                buttonText="გაიგე მეტი"
-                imageSrc="/images/2.jpg"
-                imageAlt="Model with stacked jewelry"
-
-
-            />
-
-
-        </div>
+      <div className={styles.mainPage}>
+     
+        <section id="highlight"className={styles.fullWidthSection}>
+          <HighlightSection {...(data.highlightSection)} />
+        </section>
+   
+      
+    
+        <section id="stores" className={styles.fullWidthSection}>
+          <ScrollingStores
+         items={[
+    'ლაზერული ეპილაცია', 'კანის მკურნალობა', 'ბათუმი', 'სხეულის კონტურის ფორმირება',
+    'ჰიდრაფეიშალი', 'აკნეს მოგვარება', 'პიგმენტაციის კორექცია', 'ბათუმი', 'Greenway', 'კოსმეტიკური ინიექციები',
+]}
+            highlight={t('mainPage.ourStores')}
+            speed={20}
+            direction="left"
+          />
+        </section>
+    
+        <section id="laser" className={styles.containedSection}>
+          <LaserHeroSection />
+        </section>
+    
+        <section id="payment" className={styles.fullWidthSection}>
+      
+        </section>
+    
+        <section id="skin"className={styles.containedSection}>
+          <SkinTreatmentSection />
+        </section>
+        <section id="stack" className={styles.fullWidthSection}>
+          <StackShowcase {...data.stackShowcase} />
+        </section>
+        <section id="greenway" className={styles.containedSection}>
+          <GreenwayBanner />
+        </section>
+    
+   
+      </div>
     );
+    
 };
 
 export default MainPage;

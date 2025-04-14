@@ -1,5 +1,5 @@
 // ==========================
-// Layout Helpers
+// Layout Helpers (Responsive Ready)
 // ==========================
 
 .containedSection {
@@ -10,6 +10,11 @@
     @media (min-width: 1024px) {
       padding-inline: 2rem;
     }
+  }
+  
+  // Optional narrower container (e.g. testimonials, forms)
+  .containedSection--narrow {
+    max-width: 720px;
   }
   
   .fullWidthSection {
@@ -28,4 +33,15 @@
     @media (min-width: 768px) {
       padding-block: 6rem;
     }
+  
+    @media (max-width: 480px) {
+      padding-block: 3rem;
+    }
   }
+  
+  // Composite utility if needed
+  .section {
+    @extend .fullWidthSection;
+    @extend .sectionSpacing;
+  }
+  

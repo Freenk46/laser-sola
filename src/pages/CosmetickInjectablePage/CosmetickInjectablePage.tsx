@@ -6,6 +6,7 @@ import { ConsultationBlock } from 'widgets/ConsultationBlock';
 import { HeroSection } from 'widgets/HeroSection';
 import { PricingSection } from 'widgets/PricingSection';
 import { Testimonials } from 'widgets/Testimonials';
+import styles from './CosmetickInjectablePage.module.scss';
 
 const CosmetickInjectablePage = () => {
     const { t } = useTranslation('LHR');
@@ -29,6 +30,7 @@ const CosmetickInjectablePage = () => {
     ];
     return (
         <div>
+            <section id="HeroSection" className={styles.fullWidthSection}>
             <HeroSection
                 image="/images/injectable/2.png"
                 title="სამედიცინო ექსპერტიზა"
@@ -46,7 +48,9 @@ const CosmetickInjectablePage = () => {
                     { label: 'ხშირად დასმული კითხვები', href: '#faqs' }
                 ]}
             />
-            <section id="about">
+            </section>
+           
+            <section id="about" className={styles.sectionSpacing}>
                 <AboutSection
                     title="კოსმეტიკური ინექციების შესახებ"
                     text={[
@@ -59,18 +63,19 @@ const CosmetickInjectablePage = () => {
                     onButtonClick={() => console.log('კონსულტაცია დაჯავშნილია')}
                 />
             </section>
-            <section id="about">
+            <section id="BenefitsSection" className={styles.sectionSpacing}>
                 <BenefitsSection title="Benefits of Laser Hair Removal"
                     image="/images/injectable/1.png"
                     items={benefits} />
             </section>
-            <section id="ConsultationBlock">
+      
+            <section id="ConsultationBlock" className={styles.sectionSpacing}>
                 <ConsultationBlock />
             </section>
-            <section id="pricing">
+            <section id="pricing" className={styles.sectionSpacing}>
                 <PricingSection />
             </section>
-            <section id="Testimonials">
+            <section id="Testimonials" className={styles.sectionSpacing}>
                 <Testimonials />
             </section>
 

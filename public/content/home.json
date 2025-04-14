@@ -1,0 +1,20 @@
+{
+    "highlightSection": {
+        "videoSrc": "/media/123.mp4",
+        "heading": "საოცარი ხარისხი",
+        "paragraphs": [
+            "ჩვენი აღჭურვილობა საუკეთესოა.",
+            "ჩვენ ვზრუნავთ, რომ ყოველი დეტალი პიქსელამდე სრულყოფილი იყოს."
+        ],
+        "ctaText": "გაიგე მეტი",
+        "ctaHref": "/LHR",
+        "reverse": true
+    },
+    "stackShowcase": {
+        "title": "შენი კანის მოვლა",
+        "description": "ჩვენ დაგეხმარებით შექმნაში პერსონალური კანის მოვლის რუტინის...",
+        "buttonText": "გაიგე მეტი",
+        "imageSrc": "/images/2.jpg",
+        "imageAlt": "Model with stacked jewelry"
+    }
+}

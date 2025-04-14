@@ -1,41 +1,64 @@
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import styles from './PaymentBanner.module.scss';
 
-const typingText = 'გრინვეის პროდუქცია უკვე ონლაინ ხელმისაწვდომია';
+const promoMessages = [
+  'გრინვეის პროდუქცია უკვე ონლაინ ხელმისაწვდომია',
+  '100% ნატურალური კოსმეტიკა სახისთვის და სხეულისთვის',
+  'მიიღე უფასო საკონსულტაციო ზარი ეკო-მოვლაზე',
+];
 
 export const PaymentBanner = () => {
-    const [text, setText] = useState('');
-    const [index, setIndex] = useState(0);
+  const [text, setText] = useState('');
+  const [index, setIndex] = useState(0);
+  const [msgIndex, setMsgIndex] = useState(0);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            if (index < typingText.length) {
-                setText((prev) => prev + typingText[index]);
-                setIndex(index + 1);
-            } else {
-                // გაჩერდეს 2 წამით, მერე განულდეს
-                setTimeout(() => {
-                    setText('');
-                    setIndex(0);
-                }, 2000);
-            }
-        }, 80);
+  const currentText = promoMessages[msgIndex];
 
-        return () => clearTimeout(timer);
-    }, [index]);
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
 
-    return (
-        <div className={styles.banner}>
-            <div className={styles.text}>
-                🌿 {text}
-                <span className={styles.cursor}>|</span>
-            </div>
+    if (index < currentText.length) {
+      timer = setTimeout(() => {
+        setText((prev) => prev + currentText[index]);
+        setIndex((prev) => prev + 1);
+      }, 60);
+    } else {
+      timer = setTimeout(() => {
+        setText('');
+        setIndex(0);
+        setMsgIndex((prev) => (prev + 1) % promoMessages.length);
+      }, 2500);
+    }
 
-            {/* <div className={styles.logos}>
-                <div className={styles.badge}>✔ ბიო კოსმეტიკა</div>
-                <div className={styles.badge}>✔ ეკო-მოვლა სახისთვის</div>
-                <div className={styles.badge}>✔ ნახე ახლა</div>
-            </div> */}
+    return () => clearTimeout(timer);
+  }, [index, msgIndex, currentText]);
+
+  return (
+    <motion.div
+      className={styles.banner}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className={styles.inner}>
+        <div className={styles.text}>
+          🌿 {text}
+          <span className={styles.cursor}>|</span>
         </div>
-    );
+
+        {index === currentText.length && (
+          <motion.a
+            href="/products"
+            className={styles.cta}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            დაათვალიერე პროდუქცია
+          </motion.a>
+        )}
+      </div>
+    </motion.div>
+  );
 };

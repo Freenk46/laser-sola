@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './ConsultationBlock.module.scss';
 import { MotionWrapper } from 'shared/ui/MotionWrapper/MotionWrapper';
+import { Button } from 'widgets/HeroSection/ui/Button/Button';
 
 export const ConsultationBlock = () => {
     return (
@@ -8,28 +9,27 @@ export const ConsultationBlock = () => {
 
         <section className={styles.consultation}>
             <div className={styles.text}>
-                <h2>Book in a complimentary consultation</h2>
-                <p>
-                    Initial course of Laser Hair Removal treatment recommendation (depending on area and skin tone):
-                </p>
+            <h2>დაჯავშნე უფასო საკონსულტაციო სესია</h2>
+            <p> ლაზერული ეპილაციის საწყისი კურსის რეკომენდაცია (დამოკიდებულია ზონასა და კანის ტონზე):
+            </p>
 
                 <div className={styles.stats}>
                     <div>
                         <strong>8–12</strong>
-                        <span>Treatments</span>
+                        <span>სეანსები</span>
                     </div>
                     <div className={styles.divider} />
                     <div>
-                        <strong>4–6</strong>
-                        <span>Weeks Apart</span>
+                    <strong>4–6</strong>
+                    <span>კვირის ინტერვალით</span>
                     </div>
                 </div>
 
                 <p>
-                    Everyone is slightly different so book in a complimentary consultation with one of our Laser Therapists at your nearest clinic location.
+                ყველა ადამიანი ინდივიდუალურია, ამიტომ დაგეგმე უფასო საკონსულტაციო სესია ჩვენი ლაზერ თერაპევტებთან შენს ახლოს მდებარე კლინიკაში.
                 </p>
 
-                <button className={styles.button}>BOOK NOW</button>
+                <Button className={styles.button}>დაჯავშნა</Button>
             </div>
 
             <div className={styles.image}>
