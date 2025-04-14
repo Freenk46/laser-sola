@@ -8,7 +8,7 @@ import './shared/config/i18n/i18n';
 import { ErrorBoundary } from './app/providers/ErrorBoundary';
 render(
     <StoreProvider>
-        <BrowserRouter>
+        <BrowserRouter  basename="/">
             <ErrorBoundary>
                 <ThemeProvider>
                     <App />
