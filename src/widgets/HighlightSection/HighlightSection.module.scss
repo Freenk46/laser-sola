@@ -4,96 +4,93 @@
     padding: 4rem 1.5rem;
     border-bottom: 1rem black;
 
-   
-  
     @media (min-width: 640px) {
-      padding: 5rem 2rem;
+        padding: 5rem 2rem;
     }
-  
+
     @media (min-width: 1024px) {
-      padding: 6rem 5rem;
+        padding: 6rem 5rem;
     }
-  }
-  
-  .wrapper {
+}
+
+.wrapper {
     display: grid;
     grid-template-columns: 1fr;
     gap: 3rem;
     max-width: 1280px;
     margin: 0 auto;
     align-items: center;
-  
+
     @media (min-width: 768px) {
-      grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
     }
-  
+
     &.reverse {
-      @media (min-width: 768px) {
-        direction: rtl;
-  
-        > * {
-          direction: ltr;
+        @media (min-width: 768px) {
+            direction: rtl;
+
+            > * {
+                direction: ltr;
+            }
         }
-      }
     }
-  }
-  
-  .videoWrapper {
+}
+
+.videoWrapper {
     video {
-      width: 100%;
-      height: auto;
-      border-radius: 0.5rem;
-      object-fit: cover;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-  
-      @media (min-width: 768px) {
-        margin: auto;
-      }
+        width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        object-fit: cover;
+        box-shadow: 0 4px 16px rgb(0 0 0 / 25%);
+
+        @media (min-width: 768px) {
+            margin: auto;
+        }
     }
-  }
-  
-  .content {
+}
+
+.content {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     margin: 0 auto;
     padding-inline: 0.5rem;
-  
+
     @media (min-width: 768px) {
-      padding-inline: 1rem;
+        padding-inline: 1rem;
     }
-  }
-  
-  .heading {
+}
+
+.heading {
     font-size: 2rem;
     font-weight: 800;
     color: inherit;
-  
+
     @media (min-width: 640px) {
-      font-size: 2.5rem;
+        font-size: 2.5rem;
     }
-  
+
     @media (min-width: 768px) {
-      font-size: 3rem;
+        font-size: 3rem;
     }
-  }
-  
-  .paragraph {
+}
+
+.paragraph {
     font-size: 1rem;
     line-height: 1.6;
     color: inherit;
-  }
-  
-  .cta {
+}
+
+.cta {
     color: #000;
     font-weight: 600;
     text-decoration: underline;
     text-underline-offset: 2px;
     transition: color 0.2s ease;
     margin-bottom: 1rem;
-  
+
     &:hover {
-      color: #d8d7d5; // ნათელი ვიზუალური hover
+        color: #d8d7d5; // ნათელი ვიზუალური hover
     }
-  }
-  
+}

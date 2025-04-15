@@ -15,7 +15,6 @@ export enum AppRoutes {
 
     ABOUT = 'about',
 
-
     CONTACT = 'contact',
     NOT_FOUND = 'not_found',
     FAQ = 'FAQ',
@@ -31,7 +30,7 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.CONTACT]: '/contact',
     [AppRoutes.FAQ]: '/FAQ',
     [AppRoutes.AUTH]: '/auth',
-    // последний
+
     [AppRoutes.NOT_FOUND]: '*',
 };
 

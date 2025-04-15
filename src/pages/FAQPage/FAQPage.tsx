@@ -40,16 +40,12 @@ export const FAQPage = () => {
         },
     ];
 
-    const filteredFAQs = useMemo(() => {
-        return allFAQs.filter((faq) => {
-            const matchesCategory =
-                activeCategory === 'All' || faq.category === activeCategory;
-            const matchesSearch =
-                faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                faq.answer.toLowerCase().includes(searchTerm.toLowerCase());
-            return matchesCategory && matchesSearch;
-        });
-    }, [searchTerm, activeCategory]);
+    const filteredFAQs = useMemo(() => allFAQs.filter((faq) => {
+        const matchesCategory = activeCategory === 'All' || faq.category === activeCategory;
+        const matchesSearch = faq.question.toLowerCase().includes(searchTerm.toLowerCase())
+                || faq.answer.toLowerCase().includes(searchTerm.toLowerCase());
+        return matchesCategory && matchesSearch;
+    }), [searchTerm, activeCategory]);
 
     return (
         <div className={cls.faqPage}>

@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './BenefitsSection.module.scss';
 import { MotionWrapper } from 'shared/ui/MotionWrapper/MotionWrapper';
+import styles from './BenefitsSection.module.scss';
 
 interface BenefitItem {
   title: string;
@@ -13,25 +13,23 @@ interface BenefitsSectionProps {
   items: BenefitItem[];
 }
 
-export const BenefitsSection = ({ title, image, items }: BenefitsSectionProps) => {
-  return (
+export const BenefitsSection = ({ title, image, items }: BenefitsSectionProps) => (
     <section className={styles.benefits} id="benefits">
-      <h2>{title}</h2>
+        <h2>{title}</h2>
 
-      <div className={styles.content}>
-        <div className={styles.image}>
-          <img src={image} alt="Laser Hair Removal" />
-        </div>
-
-        <div className={styles.items}>
-          {items.map((item, idx) => (
-            <div key={idx} className={styles.item}>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
+        <div className={styles.content}>
+            <div className={styles.image}>
+                <img src={image} alt="Laser Hair Removal" />
             </div>
-          ))}
+
+            <div className={styles.items}>
+                {items.map((item, idx) => (
+                    <div key={idx} className={styles.item}>
+                        <h3>{item.title}</h3>
+                        <p>{item.text}</p>
+                    </div>
+                ))}
+            </div>
         </div>
-      </div>
     </section>
-  );
-};
+);

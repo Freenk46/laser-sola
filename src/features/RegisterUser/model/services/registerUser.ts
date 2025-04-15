@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
 interface RegisterParams {
     name: string;
@@ -7,12 +7,12 @@ interface RegisterParams {
 }
 
 export const registerUser = createAsyncThunk(
-    "registerUser/registerUser",
+    'registerUser/registerUser',
     async ({ name, email, password }: RegisterParams, thunkAPI) => {
         try {
-            const res = await fetch("/api/auth/register", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
+            const res = await fetch('/api/auth/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, password }),
             });
 
@@ -23,7 +23,7 @@ export const registerUser = createAsyncThunk(
 
             return await res.json();
         } catch (err) {
-            return thunkAPI.rejectWithValue("Registration failed");
+            return thunkAPI.rejectWithValue('Registration failed');
         }
-    }
+    },
 );

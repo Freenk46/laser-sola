@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { MessageCircle } from 'lucide-react';
 import ChatWidget from './ChatWidget';
 import styles from './ChatLauncher.module.scss';
-import { MessageCircle } from 'lucide-react';
 
 const ChatLauncher = () => {
     const [isOpen, setIsOpen] = useState(false);

@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { registerUser } from "../model/services/registerUser";
-import { resetRegisterState } from "../model/slice/registerSlice";
-import { getRegisterState } from "../model/selectors/getRegisterState";
-import { RegisterFormValues } from "../model/types";
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { registerUser } from '../model/services/registerUser';
+import { resetRegisterState } from '../model/slice/registerSlice';
+import { getRegisterState } from '../model/selectors/getRegisterState';
+import { RegisterFormValues } from '../model/types';
 
 export const RegisterForm = () => {
     const dispatch = useDispatch();
     const { loading, success, error } = useSelector(getRegisterState);
 
     const [form, setForm] = useState<RegisterFormValues>({
-        name: "",
-        email: "",
-        password: "",
+        name: '',
+        email: '',
+        password: '',
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,11 +58,16 @@ export const RegisterForm = () => {
                 required
             />
             <button type="submit" disabled={loading}>
-                {loading ? "Registering..." : "Register"}
+                {loading ? 'Registering...' : 'Register'}
             </button>
 
             {success && <p>✅ Successfully registered!</p>}
-            {error && <p style={{ color: "red" }}>❌ {error}</p>}
+            {error && (
+                <p style={{ color: 'red' }}>
+                    ❌
+                    {error}
+                </p>
+            )}
         </form>
     );
 };

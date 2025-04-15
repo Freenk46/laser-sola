@@ -19,7 +19,7 @@
     &:hover {
         background: #222;
         transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
     }
 }
 
@@ -28,15 +28,15 @@
     color: black;
 
     &:hover {
-        background: rgba(0, 0, 0, 0.05);
+        background: rgb(0 0 0 / 5%);
         transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
     }
 }
 
 // shared/ui/Button/Button.module.scss
-@import '/src/app/styles/variables/global';
-@import 'src/app/styles/mixins/media';
+@import "/src/app/styles/variables/global";
+@import "src/app/styles/mixins/media";
 
 .button {
     display: inline-flex;
@@ -82,7 +82,7 @@
     &:hover {
         background-color: #222;
         transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
     }
 }
 
@@ -92,9 +92,9 @@
     border: 1px solid black;
 
     &:hover {
-        background-color: rgba(0, 0, 0, 0.05);
+        background-color: rgb(0 0 0 / 5%);
         transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
     }
 }
 

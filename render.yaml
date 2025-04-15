@@ -1,0 +1,12 @@
+services:
+  - type: static
+    name: laser-sola
+    env: static
+    buildCommand: npm run build:prod
+    staticPublishPath: build
+    branch: main
+    pullRequestPreviewsEnabled: false
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

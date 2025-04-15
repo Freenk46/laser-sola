@@ -1,9 +1,7 @@
-import { AuthTabs } from "features/AuthTabs/ui/AuthTabs";
+import { AuthTabs } from 'features/AuthTabs/ui/AuthTabs';
 
-export const AuthPage = () => {
-    return (
-        <div>
-            <AuthTabs />
-        </div>
-    );
-};
+export const AuthPage = () => (
+    <div>
+        <AuthTabs />
+    </div>
+);

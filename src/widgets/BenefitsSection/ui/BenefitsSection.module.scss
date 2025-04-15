@@ -1,90 +1,84 @@
 .benefits {
     width: 100vw;
- 
     padding: 4rem 6vw;
     background: #fff;
     box-sizing: border-box;
     max-width: 1440px;
-   
-  margin-top: -150px;
-  margin-bottom: 0;
-  margin-left: auto;
-  margin-right: auto;
-   
-  
+    margin-top: -150px;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+
     h1,
     h2 {
-      font-size: 2.5rem;
-      line-height: 1.6;
-      margin-bottom: 3rem;
-      color: #111;
-  
-      @media (max-width: 768px) {
-        font-size: 1.8rem;
-      }
-  
-      @media (max-width: 480px) {
-        font-size: 1.5rem;
-      }
+        font-size: 2.5rem;
+        line-height: 1.6;
+        margin-bottom: 3rem;
+        color: #111;
+
+        @media (max-width: 768px) {
+            font-size: 1.8rem;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 1.5rem;
+        }
     }
-  }
-  
-  .content {
+}
+
+.content {
     display: flex;
     flex-wrap: wrap;
     gap: 2.5rem;
     justify-content: space-between;
     align-items: flex-start;
-    
-  
+
     @media (max-width: 768px) {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
-  }
-  
-  .image {
+}
+
+.image {
     flex: 1;
     width: 100%;
-  
+
     img {
-      width: 100%;
-    
-      height: auto;
-      object-fit: cover;
-      border-radius: 8px;
-      display: block;
-      margin: 0 auto;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+        display: block;
+        margin: 0 auto;
     }
-  }
-  
-  .items {
+}
+
+.items {
     flex: 1;
     width: 100%;
     max-width: 600px;
-  
+
     .item {
-      margin-bottom: 2rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid #ddd;
-  
-      &:last-child {
-        border-bottom: none;
-      }
-  
-      h3 {
-        font-size: 1.2rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        color: #000;
-      }
-  
-      p {
-        font-size: 1rem;
-        color: #555;
-        line-height: 1.7;
-      }
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid #ddd;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #000;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.7;
+        }
     }
-  }
-  
+}

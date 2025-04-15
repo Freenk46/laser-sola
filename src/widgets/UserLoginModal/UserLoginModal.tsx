@@ -52,7 +52,10 @@ export const UserLoginModal = ({ isOpen, onClose }: Props) => {
                 </form>
 
                 <div className={styles.footer}>
-                    <span>Not a member? <a href="#">Join Now</a></span>
+                    <span>
+                        Not a member?
+                        <a href="#">Join Now</a>
+                    </span>
                 </div>
             </div>
         </div>

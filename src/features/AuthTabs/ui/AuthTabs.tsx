@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { LoginForm } from "features/AuthByUsername/ui/LoginForm/LoginForm";
-import { RegisterForm } from "features/RegisterUser/ui/RegisterForm";
+import React, { useState } from 'react';
+import { LoginForm } from 'features/AuthByUsername/ui/LoginForm/LoginForm';
+import { RegisterForm } from 'features/RegisterUser/ui/RegisterForm';
 
-import "./AuthTabs.module.scss"; // ჩამოგიწერ ამ სტილსაც
+import './AuthTabs.module.scss'; // ჩამოგიწერ ამ სტილსაც
 
 export const AuthTabs = () => {
     const [isLogin, setIsLogin] = useState(true);
@@ -14,13 +14,13 @@ export const AuthTabs = () => {
 
             <div className="tabs">
                 <button
-                    className={isLogin ? "active" : ""}
+                    className={isLogin ? 'active' : ''}
                     onClick={() => setIsLogin(true)}
                 >
                     LOG IN
                 </button>
                 <button
-                    className={!isLogin ? "active" : ""}
+                    className={!isLogin ? 'active' : ''}
                     onClick={() => setIsLogin(false)}
                 >
                     SIGN UP
@@ -28,7 +28,7 @@ export const AuthTabs = () => {
             </div>
 
             <div className="form-area">
-                <h3>{isLogin ? "Log in with your email" : "Create your account"}</h3>
+                <h3>{isLogin ? 'Log in with your email' : 'Create your account'}</h3>
                 {isLogin ? <LoginForm /> : <RegisterForm />}
             </div>
         </div>

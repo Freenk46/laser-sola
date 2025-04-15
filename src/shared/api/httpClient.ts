@@ -1,4 +1,4 @@
-import { getAccessToken, setAccessToken, clearAccessToken } from "features/AuthByUsername/model/services/authService";
+import { getAccessToken, setAccessToken, clearAccessToken } from 'features/AuthByUsername/model/services/authService';
 
 /**
  * authFetch wrapper with refresh token support
@@ -8,7 +8,7 @@ import { getAccessToken, setAccessToken, clearAccessToken } from "features/AuthB
  */
 export const authFetch = async (
     url: string,
-    options: RequestInit = {}
+    options: RequestInit = {},
 ): Promise<Response> => {
     const token = getAccessToken();
 
@@ -16,16 +16,16 @@ export const authFetch = async (
         ...options,
         headers: {
             ...(options.headers || {}),
-            Authorization: token ? `Bearer ${token}` : "",
+            Authorization: token ? `Bearer ${token}` : '',
         },
     });
 
     // If access token is invalid/expired
     if (res.status === 401 || res.status === 403) {
         try {
-            const refreshRes = await fetch("/api/auth/refresh", {
-                method: "POST",
-                credentials: "include",
+            const refreshRes = await fetch('/api/auth/refresh', {
+                method: 'POST',
+                credentials: 'include',
             });
 
             if (refreshRes.ok) {
@@ -34,13 +34,12 @@ export const authFetch = async (
 
                 // Retry original request
                 return authFetch(url, options);
-            } else {
-                clearAccessToken();
-                throw new Error("Refresh token expired or invalid");
             }
+            clearAccessToken();
+            throw new Error('Refresh token expired or invalid');
         } catch (err) {
             clearAccessToken();
-            throw new Error("Refresh flow failed");
+            throw new Error('Refresh flow failed');
         }
     }
 

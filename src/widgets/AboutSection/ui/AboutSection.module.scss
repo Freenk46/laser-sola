@@ -7,74 +7,72 @@
     margin: 0 auto;
     padding: 4rem 1rem;
     margin-top: -50px;
-    background: #ffffff;
+    background: #fff;
 
-  
     @media (max-width: 1024px) {
-      grid-template-columns: 1fr;
-  
-      .image {
-        order: -1;
-      }
-  
-      text-align: center;
+        grid-template-columns: 1fr;
+
+        .image {
+            order: -1;
+        }
+
+        text-align: center;
     }
-  
+
     @media (max-width: 768px) {
-      gap: 1.5rem;
-      padding: 3rem 1.5rem;
+        gap: 1.5rem;
+        padding: 3rem 1.5rem;
     }
-  
+
     @media (max-width: 480px) {
-      padding: 2rem 1rem;
+        padding: 2rem 1rem;
     }
-  }
-  
-  .text {
+}
+
+.text {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 1.25rem;
-  
+
     @media (max-width: 1024px) {
-      align-items: center;
+        align-items: center;
     }
-  }
-  
-  .title {
+}
+
+.title {
     font-size: 2rem;
     font-weight: 700;
     line-height: 1.8;
     margin-bottom: 1rem;
-  
+
     @media (min-width: 768px) {
-      font-size: 2.5rem;
-      
+        font-size: 2.5rem;
     }
-  
+
     @media (max-width: 480px) {
-      font-size: 1.6rem;
+        font-size: 1.6rem;
     }
-  }
-  
-  .description {
+}
+
+.description {
     font-size: 1rem;
     color: #444;
     line-height: 2;
     max-width: 560px;
-  
+
     @media (max-width: 1024px) {
-      max-width: 100%;
-      line-height: 2;
-      margin: 0 auto;
+        max-width: 100%;
+        line-height: 2;
+        margin: 0 auto;
     }
-  
+
     @media (max-width: 480px) {
-      font-size: 0.95rem;
+        font-size: 0.95rem;
     }
-  }
-  
-  .button {
+}
+
+.button {
     background-color: #000;
     color: #fff;
     border: none;
@@ -89,31 +87,29 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-  
-    &:hover {
-      background-color: #333;
-    }
-  
-    @media (max-width: 1024px) {
-      margin: 0 auto 1rem auto;
-    }
-  
-    .arrow {
-      transition: transform 0.2s ease;
-    }
-  
-    &:hover .arrow {
-      transform: translateX(4px);
-    }
-  }
-  
-  .image {
 
-    img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      object-fit: cover;
-   
+    &:hover {
+        background-color: #333;
     }
-  }
+
+    @media (max-width: 1024px) {
+        margin: 0 auto 1rem;
+    }
+
+    .arrow {
+        transition: transform 0.2s ease;
+    }
+
+    &:hover .arrow {
+        transform: translateX(4px);
+    }
+}
+
+.image {
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+}

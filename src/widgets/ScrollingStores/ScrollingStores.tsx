@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './ScrollingStores.module.scss';
 import clsx from 'clsx';
+import styles from './ScrollingStores.module.scss';
 
 interface ScrollingStoresProps {
     items: string[];
@@ -32,7 +32,7 @@ const ScrollingStores: React.FC<ScrollingStoresProps> = ({
                         key={i}
                         className={clsx(
                             styles.city,
-                            highlight === city && styles.highlight
+                            highlight === city && styles.highlight,
                         )}
                     >
                         {city}

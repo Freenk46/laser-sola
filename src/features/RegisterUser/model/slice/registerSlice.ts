@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { registerUser } from "../services/registerUser";
+import { createSlice } from '@reduxjs/toolkit';
+import { registerUser } from '../services/registerUser';
 
 interface RegisterState {
     loading: boolean;
@@ -14,7 +14,7 @@ const initialState: RegisterState = {
 };
 
 const registerSlice = createSlice({
-    name: "registerUser",
+    name: 'registerUser',
     initialState,
     reducers: {
         resetRegisterState(state) {

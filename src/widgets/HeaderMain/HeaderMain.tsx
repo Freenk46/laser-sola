@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import styles from './HeaderMain.module.scss';
-import { User, Search, Heart, ShoppingBag } from 'lucide-react';
+import {
+    User, Search, Heart, ShoppingBag,
+} from 'lucide-react';
 import { UserLoginModal } from 'widgets/UserLoginModal/UserLoginModal';
+import styles from './HeaderMain.module.scss';
 
 const HeaderMain = () => {
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -30,7 +32,7 @@ const HeaderMain = () => {
                 <li>Dermal Filler</li>
             </ul>
         ),
-        'SKINCARE': (
+        SKINCARE: (
             <ul>
                 <li>Facials</li>
                 <li>Peels</li>
@@ -71,12 +73,11 @@ const HeaderMain = () => {
             <div className={styles.right}>
                 <button onClick={() => setLoginOpen(true)}>
                     <User size={18} strokeWidth={1.2} />
-                </button >
+                </button>
                 <ShoppingBag size={18} strokeWidth={1.2} />
             </div>
             <UserLoginModal isOpen={isLoginOpen} onClose={() => setLoginOpen(false)} />
             {/* Burger icon - visible on mobile */}
-
 
             {/* Mobile menu overlay */}
             {mobileMenuOpen && (

@@ -6,18 +6,18 @@
     max-width: 1200px;
     margin: 0 auto;
     padding-inline: 1.25rem;
-  
+
     @media (min-width: 1024px) {
-      padding-inline: 2rem;
+        padding-inline: 2rem;
     }
-  }
-  
-  // Optional narrower container (e.g. testimonials, forms)
-  .containedSection--narrow {
+}
+
+// Optional narrower container (e.g. testimonials, forms)
+.containedSection--narrow {
     max-width: 720px;
-  }
-  
-  .fullWidthSection {
+}
+
+.fullWidthSection {
     width: 100vw;
     position: relative;
     left: 50%;
@@ -25,23 +25,22 @@
     margin-left: -50vw;
     margin-right: -50vw;
     background: inherit;
-  }
-  
-  .sectionSpacing {
+}
+
+.sectionSpacing {
     padding-block: 4rem;
-  
+
     @media (min-width: 768px) {
-      padding-block: 6rem;
+        padding-block: 6rem;
     }
-  
+
     @media (max-width: 480px) {
-      padding-block: 3rem;
+        padding-block: 3rem;
     }
-  }
-  
-  // Composite utility if needed
-  .section {
+}
+
+// Composite utility if needed
+.section {
     @extend .fullWidthSection;
     @extend .sectionSpacing;
-  }
-  
+}

@@ -1,7 +1,7 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { loginByUsername } from "../services/loginByUsername/loginByUsername";
-import { logoutUser } from "../services/logoutUser";
-import { AuthSchema, User } from "../types";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { loginByUsername } from '../services/loginByUsername/loginByUsername';
+import { logoutUser } from '../services/logoutUser';
+import { AuthSchema, User } from '../types';
 
 const initialState: AuthSchema = {
     authData: null,
@@ -10,7 +10,7 @@ const initialState: AuthSchema = {
 };
 
 const authSlice = createSlice({
-    name: "auth",
+    name: 'auth',
     initialState,
     reducers: {
         setAuthData: (state, action: PayloadAction<User>) => {

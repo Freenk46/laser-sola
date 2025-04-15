@@ -61,7 +61,7 @@
     p {
         font-size: 1.125rem;
         line-height: 1.8;
-         color: #222;;
+        color: #222;
         margin-bottom: 2rem;
         max-width: 540px;
     }
@@ -90,7 +90,6 @@
 
         &:hover {
             background: #222;
-        
         }
     }
 
@@ -99,9 +98,9 @@
         color: #000;
 
         &:hover {
-            background: rgba(0, 0, 0, 0.05);
+            background: rgb(0 0 0 / 5%);
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
         }
     }
 }
@@ -137,7 +136,7 @@
         // ✅ მობილურისთვის არ ვტვირთავთ hover სელექტორს
         @media (hover: hover) and (pointer: fine) {
             &::after {
-                content: '';
+                content: "";
                 position: absolute;
                 bottom: 0;
                 left: 0;
@@ -156,7 +155,6 @@
             &:hover {
                 color: #d4a373;
                 transform: translateY(-2px);
-            
             }
         }
 

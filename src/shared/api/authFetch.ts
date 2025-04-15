@@ -1,4 +1,4 @@
-import { getAccessToken } from "features/AuthByUsername/model/services/authService";
+import { getAccessToken } from 'features/AuthByUsername/model/services/authService';
 
 export const authFetch = async (url: string, options: RequestInit = {}) => {
     const token = getAccessToken();
@@ -7,7 +7,7 @@ export const authFetch = async (url: string, options: RequestInit = {}) => {
         ...options,
         headers: {
             ...(options.headers || {}),
-            Authorization: token ? `Bearer ${token}` : "",
+            Authorization: token ? `Bearer ${token}` : '',
         },
     });
 

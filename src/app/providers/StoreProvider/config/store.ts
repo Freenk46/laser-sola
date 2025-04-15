@@ -29,8 +29,7 @@ export function createReduxStore(initialState?: StateSchema) {
         preloadedState: initialState,
         // ✅ workaround for strict type error
         // @ts-expect-error: RTK Query middleware not matching exact inferred type
-        middleware: (getDefaultMiddleware) =>
-            getDefaultMiddleware().concat(contentApi.middleware),
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(contentApi.middleware),
     });
     return store;
 }

@@ -31,25 +31,25 @@ const CosmetickInjectablePage = () => {
     return (
         <div>
             <section id="HeroSection" className={styles.fullWidthSection}>
-            <HeroSection
-                image="/images/injectable/2.png"
-                title="სამედიცინო ექსპერტიზა"
-                description="სახის შეფასების და შეშფოთების სფეროების საფუძველზე, ჩვენი სამედიცინო რეგისტრირებული პროფესიონალების გუნდი განიხილავს თქვენი მკურნალობის პრიორიტეტებს და შეგიქმნით თქვენთვის მორგებულ მკურნალობის გეგმას.."
-                primaryBtn={{ text: 'გაიგე მეტი', href: '#benefits' }}
-                secondaryBtn={{ text: 'დაჯავშნე კონსულტაცია', href: '#consultation' }}
-                textBackgroundColor="#f4f4f4" // ✅ ღია ნაცრისფერი
-                navBackgroundColor="#eaeaea" // ✅ ღია ნაცრისფერი 
-                navLinks={[
-                    { label: 'ინიექციების შესახებ', href: '#about-injectables' },
-                    { label: 'ჩვენი პროცედურები', href: '#treatments' },
-                    { label: 'რატომ ჩვენ', href: '#why-us' },
-                    { label: 'ფასები', href: '#pricing' },
-                    { label: 'სამედიცინო გუნდი', href: '#team' },
-                    { label: 'ხშირად დასმული კითხვები', href: '#faqs' }
-                ]}
-            />
+                <HeroSection
+                    image="/images/injectable/2.png"
+                    title="სამედიცინო ექსპერტიზა"
+                    description="სახის შეფასების და შეშფოთების სფეროების საფუძველზე, ჩვენი სამედიცინო რეგისტრირებული პროფესიონალების გუნდი განიხილავს თქვენი მკურნალობის პრიორიტეტებს და შეგიქმნით თქვენთვის მორგებულ მკურნალობის გეგმას.."
+                    primaryBtn={{ text: 'გაიგე მეტი', href: '#benefits' }}
+                    secondaryBtn={{ text: 'დაჯავშნე კონსულტაცია', href: '#consultation' }}
+                    textBackgroundColor="#f4f4f4" // ✅ ღია ნაცრისფერი
+                    navBackgroundColor="#eaeaea" // ✅ ღია ნაცრისფერი
+                    navLinks={[
+                        { label: 'ინიექციების შესახებ', href: '#about-injectables' },
+                        { label: 'ჩვენი პროცედურები', href: '#treatments' },
+                        { label: 'რატომ ჩვენ', href: '#why-us' },
+                        { label: 'ფასები', href: '#pricing' },
+                        { label: 'სამედიცინო გუნდი', href: '#team' },
+                        { label: 'ხშირად დასმული კითხვები', href: '#faqs' },
+                    ]}
+                />
             </section>
-           
+
             <section id="about" className={styles.sectionSpacing}>
                 <AboutSection
                     title="კოსმეტიკური ინექციების შესახებ"
@@ -64,11 +64,13 @@ const CosmetickInjectablePage = () => {
                 />
             </section>
             <section id="BenefitsSection" className={styles.sectionSpacing}>
-                <BenefitsSection title="Benefits of Laser Hair Removal"
+                <BenefitsSection
+                    title="Benefits of Laser Hair Removal"
                     image="/images/injectable/1.png"
-                    items={benefits} />
+                    items={benefits}
+                />
             </section>
-      
+
             <section id="ConsultationBlock" className={styles.sectionSpacing}>
                 <ConsultationBlock />
             </section>
@@ -78,7 +80,6 @@ const CosmetickInjectablePage = () => {
             <section id="Testimonials" className={styles.sectionSpacing}>
                 <Testimonials />
             </section>
-
 
         </div>
     );

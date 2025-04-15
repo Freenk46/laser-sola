@@ -17,23 +17,21 @@ export const AboutSection = ({
     imageAlt = '',
     buttonLabel,
     onButtonClick,
-}: Props) => {
-    return (
-        <section className={styles.section}>
-            <div className={styles.text}>
-                <h2 className={styles.title}>{title}</h2>
-                {text.map((paragraph, idx) => (
-                    <p key={idx} className={styles.description}>{paragraph}</p>
-                ))}
-                {buttonLabel && (
-                    <button className={styles.button} onClick={onButtonClick}>
-                        {buttonLabel}
-                    </button>
-                )}
-            </div>
-            <div className={styles.image}>
-                <img src={imageSrc} alt={imageAlt} />
-            </div>
-        </section>
-    );
-};
+}: Props) => (
+    <section className={styles.section}>
+        <div className={styles.text}>
+            <h2 className={styles.title}>{title}</h2>
+            {text.map((paragraph, idx) => (
+                <p key={idx} className={styles.description}>{paragraph}</p>
+            ))}
+            {buttonLabel && (
+                <button className={styles.button} onClick={onButtonClick}>
+                    {buttonLabel}
+                </button>
+            )}
+        </div>
+        <div className={styles.image}>
+            <img src={imageSrc} alt={imageAlt} />
+        </div>
+    </section>
+);

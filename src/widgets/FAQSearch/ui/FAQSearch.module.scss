@@ -1,7 +1,7 @@
 .faqSearch {
     width: 100%;
     max-width: 600px;
-    margin: 0 auto 2rem auto; // ცენტრში
+    margin: 0 auto 2rem; // ცენტრში
     position: relative;
 }
 
@@ -12,12 +12,12 @@
     border-radius: 8px;
     font-size: 1rem;
     background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 2px 5px rgb(0 0 0 / 3%);
     transition: border-color 0.3s ease;
 
     &:focus {
         outline: none;
         border-color: #e83e8c;
-        box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.2);
+        box-shadow: 0 0 0 3px rgb(232 62 140 / 20%);
     }
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import cls from './FAQAccordion.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
+import cls from './FAQAccordion.module.scss';
 
 interface FAQItem {
     question: string;

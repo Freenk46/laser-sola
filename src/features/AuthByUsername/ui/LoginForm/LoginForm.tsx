@@ -44,7 +44,8 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
                 placeholder={t('Введите username')}
                 onChange={onChangeUsername}
                 value={email}
-            />s
+            />
+            s
             <Input
                 type="text"
                 className={cls.input}

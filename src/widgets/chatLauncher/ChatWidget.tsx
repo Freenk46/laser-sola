@@ -1,6 +1,6 @@
-import styles from './Chatwidget.module.scss';
 import { X } from 'lucide-react';
 import { useState } from 'react';
+import styles from './Chatwidget.module.scss';
 import FAQHelpTopics from '../chatFaq/FAQHelpTopics';
 import FAQHelpDetail from '../chatFaq/FAQHelpDetail';
 

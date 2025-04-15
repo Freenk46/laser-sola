@@ -1,17 +1,17 @@
 .banner {
     display: flex;
-    background-color: #ffffff;
+    background-color: #fff;
     color: #000;
     padding: 1rem 2rem;
     font-size: 1rem;
     font-weight: 600;
-    font-family: 'BPG Classic Medium', sans-serif;
+    font-family: "BPG Classic Medium", sans-serif;
     overflow: hidden;
     white-space: nowrap;
 }
 
 .typing::after {
-    content: '|';
+    content: "|";
     animation: blink 1s step-start infinite;
     margin-left: 4px;
     color: #000;

@@ -6,13 +6,13 @@
     max-width: 1200px;
     margin: 0 auto;
     padding-inline: 1.25rem;
-  
+
     @media (min-width: 1024px) {
-      padding-inline: 2rem;
+        padding-inline: 2rem;
     }
-  }
-  
-  .fullWidthSection {
+}
+
+.fullWidthSection {
     width: 100vw;
     position: relative;
     left: 50%;
@@ -20,12 +20,12 @@
     margin-left: -50vw;
     margin-right: -50vw;
     background: inherit;
-  }
-  
-  .sectionSpacing {
+}
+
+.sectionSpacing {
     padding-block: 4rem;
-  
+
     @media (min-width: 768px) {
-      padding-block: 6rem;
+        padding-block: 6rem;
     }
-  }
+}

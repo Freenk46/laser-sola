@@ -1,8 +1,8 @@
 // shared/ui/Button/Button.tsx
 import React from 'react';
 
-import styles from './Button.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
+import styles from './Button.module.scss';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: 'primary' | 'secondary';
@@ -54,7 +54,7 @@ export const Button = ({
                     [styles.loading]: loading,
                     [styles.disabled]: disabled,
                 },
-                [className]
+                [className],
             )}
             onClick={handleClick}
             disabled={disabled}

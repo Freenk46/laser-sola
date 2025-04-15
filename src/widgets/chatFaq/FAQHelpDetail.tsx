@@ -1,10 +1,10 @@
-import styles from './FAQHelpDetail.module.scss';
 import { ArrowLeft } from 'lucide-react';
+import styles from './FAQHelpDetail.module.scss';
 
 const FAQHelpDetail = ({
     question,
     answer,
-    onBack
+    onBack,
 }: {
     question: string;
     answer: string;
