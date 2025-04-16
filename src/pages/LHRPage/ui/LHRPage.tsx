@@ -33,7 +33,7 @@ const LHRPage = () => {
         <div className={styles.LHRPage}>
             <section id="HeroSection" className={styles.fullWidthSection}>
                 <HeroSection
-                    image="https://www.laserclinics.co.uk/contentassets/52ce3bc97cdc4c389b20e10d5b118ade/rebrandv2lhrhero-1.png?width=1920&mode=max"
+                    image="/images/LHR/11.png"
                     title="აბრეშუმისებრი გლუვი, კვირაში 7 დღე"
                     description="გადაყარეთ საპარსები. აღარ არის ეპილაცია. მიესალმეთ სამედიცინო კლასის ლაზერულ ეპილაციას და ისიამოვნეთ მზადყოფნის თავისუფლებით."
                     primaryBtn={{ text: 'გაიგე მეტი', href: '#benefits' }}
@@ -68,7 +68,7 @@ const LHRPage = () => {
             <section id="BenefitsSection" className={styles.sectionSpacing}>
                 <BenefitsSection
                     title="ლაზერული ეპილაციის უპირატესობები"
-                    image="https://www.laserclinics.co.uk/contentassets/5abdddbd832b45bf8da64f409e129644/rebrandv2lhrbenefits.png"
+                    image="/images/LHR/12.png"
                     items={benefits}
                 />
             </section>

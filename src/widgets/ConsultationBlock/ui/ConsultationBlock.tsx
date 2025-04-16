@@ -33,7 +33,7 @@ export const ConsultationBlock = () => (
         </div>
 
         <div className={styles.image}>
-            <img src="https://www.laserclinics.co.uk/contentassets/41a7081b2d1b404980d0b6bcd7d0c4a2/medicalteamconsult1.png" alt="Laser therapists team" />
+            <img src="/images/team.png" alt="Laser therapists team" />
         </div>
     </section>
 
