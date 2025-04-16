@@ -23,6 +23,11 @@ const MainPage = () => {
         setValue(val);
     };
 
+    const MainPage = () => {
+        console.log('MAIN PAGE MOUNTED');
+        return <div style={{ color: 'red' }}>MAIN PAGE CONTENT</div>;
+      };
+
     return (
         <div className={styles.mainPage}>
 

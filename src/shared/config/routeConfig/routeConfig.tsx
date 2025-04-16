@@ -1,5 +1,4 @@
 import { RouteProps } from 'react-router-dom';
-import { MainPage } from 'pages/MainPage';
 import { AboutPage } from 'pages/AboutPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import ContactPage from 'pages/ContactPage/ContactPage';
@@ -7,6 +6,8 @@ import { FAQPage } from 'pages/FAQPage/FAQPage';
 import { AuthPage } from 'pages/AuthPage/ui/AuthPage';
 import LHRPage from 'pages/LHRPage/ui/LHRPage';
 import CosmetickInjectablePage from 'pages/CosmetickInjectablePage/CosmetickInjectablePage';
+import MainPage from 'pages/MainPage/ui/MainPage';
+
 
 export enum AppRoutes {
     MAIN = 'main',
@@ -23,7 +24,7 @@ export enum AppRoutes {
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
-    [AppRoutes.MAIN]: '',
+    [AppRoutes.MAIN]: '/',
     [AppRoutes.LHR]: '/LHR',
     [AppRoutes.COSMETICINJECTABLE]: '/injectables',
     [AppRoutes.ABOUT]: '/about',
