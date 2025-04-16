@@ -18,18 +18,12 @@
     --font-line-xl: 40px;
     --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
-    // Размеры
-    --navbar-height: 50px;
-    --sidebar-width: 300px;
-    --sidebar-width-collapsed: 80px;
+ 
 
-    // z - Индексы
-    --modal-z-index: 10;
+   
 
-    // Цвета
-    --overlay-color: rgba(0 0 0 / 60%);
-    --red-light: #ff00;
-    --red-dark: #ce0505;
+
+  
 }
 
 // _media.scss ან პირდაპირ global.scss-ში
@@ -47,3 +41,41 @@ $breakpoints: (
         @content;
     }
 }
+.headerMainlight {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --primary-color: #d4a373;
+    --border-color: #cccccc;
+    --dropdown-bg: #fefefe;
+  }
+  
+  .headerMaindark {
+    --bg-color: #111111;
+    --text-color: #eeeeee;
+    --primary-color: #d4a373;
+    --border-color: #444444;
+    --dropdown-bg: #1c1c1c;
+  }
+
+  .footerlight {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --link-muted-color: #888888;
+    --link-hover-color: #111111;
+    --border-color: #dddddd;
+    --primary-color: #d4a373;
+  }
+  
+  .footerdark {
+    --bg-color: #111111;
+    --text-color: #eeeeee;
+    --link-muted-color: #aaaaaa;
+    --link-hover-color: #ffffff;
+    --border-color: #444444;
+    --primary-color: #d4a373;
+  }
+  
+
+
+
+ 

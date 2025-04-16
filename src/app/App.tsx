@@ -20,11 +20,11 @@ function App() {
 
     return (
         <div className={classNames('app', {}, [theme])}>
+            <div id="theme-overlay-root" style={{ position: 'fixed', inset: 0, zIndex: 2, pointerEvents: 'none' }} />
             <Suspense fallback="">
                 <TopBar />
-                <HeaderMain />
+                <HeaderMain/>
                 <div className="content-page">
-
                     <AppRouter />
                 </div>
                 <ChatLauncher />

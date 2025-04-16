@@ -10,7 +10,10 @@ import { SkinTreatmentSection } from 'widgets/SkinTreatmentSection/SkinTreatment
 import { StackShowcase } from 'widgets/StackShowcase/StackShowcase';
 import styles from './MainPage.module.scss';
 
+
+
 const MainPage = () => {
+  
     const { data, isLoading } = useGetPageContentQuery('home');
     const { t } = useTranslation();
     const [value, setValue] = useState('');

@@ -1,19 +1,19 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { clearAccessToken } from './authService';
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { clearAccessToken } from "./authService";
 
 export const logoutUser = createAsyncThunk(
-    'auth/logoutUser',
+    "auth/logoutUser",
     async (_, thunkAPI) => {
         try {
             // optional: სერვერზე logout API თუ გექნება
-            await fetch('/api/auth/logout', {
-                method: 'POST',
-                credentials: 'include',
+            await fetch("/api/auth/logout", {
+                method: "POST",
+                credentials: "include",
             });
         } catch (err) {
-            console.warn('Logout API failed, fallback to local clear');
+            console.warn("Logout API failed, fallback to local clear");
         } finally {
             clearAccessToken(); // ვშლით access token-ს
         }
-    },
+    }
 );

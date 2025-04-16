@@ -1,0 +1,59 @@
+/* 📦 COMPONENT-THEMES: Theme-specific overrides per component
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+/* == FOOTER == */
+.footer.light {
+  --bg-color: #ffffff;
+  --text-color: #111111;
+  --link-color: #888888;
+  --link-hover-color: #111111;
+  --border-color: #dddddd;
+}
+
+.footer.dark {
+  --bg-color: #111111;
+  --text-color: #eeeeee;
+  --link-color: #aaaaaa;
+  --link-hover-color: #ffffff;
+  --border-color: #444444;
+}
+
+/* == TOP BAR == */
+.topBar.light,
+.drawer.light {
+  --bg-color: #ffffff;
+  --text-color: #111111;
+  --primary-color: #d4a373;
+  --border-color: #dddddd;
+  --secondary-color: #f9f9f9;
+  --text-muted-color: #888888;
+}
+
+.topBar.dark,
+.drawer.dark {
+  --bg-color: #111111;
+  --text-color: #eeeeee;
+  --primary-color: #d4a373;
+  --border-color: #444444;
+  --secondary-color: #222222;
+  --text-muted-color: #aaaaaa;
+}
+
+/* == HEADER MAIN == */
+.headerMain.light {
+  --bg-color: #ffffff;
+  --text-color: #111111;
+  --primary-color: #d4a373;
+  --border-color: #cccccc;
+  --dropdown-bg: #fefefe;
+}
+
+.headerMain.dark {
+  --bg-color: #111111;
+  --text-color: #eeeeee;
+  --primary-color: #d4a373;
+  --border-color: #444444;
+  --dropdown-bg: #1c1c1c;
+}
+
+/* 💡 დაამატე სხვა კომპონენტები იგივე ფორმატით */

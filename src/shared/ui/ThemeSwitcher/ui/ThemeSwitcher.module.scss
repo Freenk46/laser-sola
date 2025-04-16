@@ -1,0 +1,20 @@
+.themeSwitcher {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    position: relative;
+  }
+  
+  .overlay {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: scale(0);
+    transition: transform 0.8s ease-out;
+    z-index: 9999;
+    background-color: var(--overlay-color);
+    mix-blend-mode: difference;
+  }
+  

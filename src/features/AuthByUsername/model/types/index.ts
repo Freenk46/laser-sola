@@ -4,6 +4,7 @@ export interface User {
     email: string;
 }
 
+
 export interface AuthSchema {
     authData: User | null;
     loading: boolean;

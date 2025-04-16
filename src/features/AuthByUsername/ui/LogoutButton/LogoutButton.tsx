@@ -1,5 +1,5 @@
-import { useDispatch } from 'react-redux';
-import { logoutUser } from '../../model/services/logoutUser';
+import { useDispatch } from "react-redux";
+import { logoutUser } from "../../model/services/logoutUser";
 
 export const LogoutButton = () => {
     const dispatch = useDispatch();

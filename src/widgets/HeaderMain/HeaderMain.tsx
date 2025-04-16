@@ -1,13 +1,22 @@
-import { useState } from 'react';
+import React, { useState, MouseEvent } from 'react';
 import {
-    User, Search, Heart, ShoppingBag,
+    User, ShoppingBag,
 } from 'lucide-react';
 import { UserLoginModal } from 'widgets/UserLoginModal/UserLoginModal';
 import styles from './HeaderMain.module.scss';
+import { useTheme } from 'app/providers/ThemeProvider/ThemeProvider';
+import { ThemeExplosionToggle } from 'widgets/ThemeExplosionToggle/ThemeExplosionToggle';
 
-const HeaderMain = () => {
+interface HeaderMainProps {
+    theme?: 'light' | 'dark';
+}
+
+const HeaderMain = ({ theme }: HeaderMainProps) => {
+    const contextTheme = useTheme().theme;
+    const toggleTheme = useTheme().toggleTheme;
+    const appliedTheme =    `headerMain${theme || contextTheme}`;
+
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [isLoginOpen, setLoginOpen] = useState(false);
 
@@ -19,41 +28,44 @@ const HeaderMain = () => {
 
     const dropdownContent: Record<string, JSX.Element> = {
         'LASER HAIR REMOVAL': (
-            <ul>
-                <li>Women’s Laser</li>
-                <li>Men’s Laser</li>
-                <li>Full Body Packages</li>
-            </ul>
+            <ul><li>Women’s Laser</li><li>Men’s Laser</li><li>Full Body Packages</li></ul>
         ),
         'COSMETIC INJECTABLE': (
-            <ul>
-                <li>Lip Filler</li>
-                <li>Anti-Wrinkle</li>
-                <li>Dermal Filler</li>
-            </ul>
+            <ul><li>Lip Filler</li><li>Anti-Wrinkle</li><li>Dermal Filler</li></ul>
         ),
         SKINCARE: (
-            <ul>
-                <li>Facials</li>
-                <li>Peels</li>
-                <li>Microneedling</li>
-            </ul>
+            <ul><li>Facials</li><li>Peels</li><li>Microneedling</li></ul>
         ),
     };
 
-    const handleClick = (path: string) => {
-        window.location.href = path;
+    const handleThemeToggle = (e: MouseEvent<HTMLButtonElement>) => {
+        const { clientX, clientY } = e;
+        const overlay = document.createElement('div');
+        overlay.className = styles.overlay;
+
+        const maxDim = Math.max(window.innerWidth, window.innerHeight) * 2;
+        overlay.style.left = `${clientX - maxDim / 2}px`;
+        overlay.style.top = `${clientY - maxDim / 2}px`;
+        overlay.style.width = overlay.style.height = `${maxDim}px`;
+
+        document.body.appendChild(overlay);
+        requestAnimationFrame(() => {
+            overlay.style.transform = 'scale(1)';
+        });
+
+        setTimeout(() => {
+            toggleTheme();
+        }, 400);
+
+        setTimeout(() => {
+            overlay.remove();
+        }, 800);
     };
 
     return (
-        <div className={styles.headerMain}>
+        <div className={`${styles.headerMain} ${appliedTheme}`}>
             <div className={styles.left}>
-                <button
-                    className={styles.burger}
-                    onClick={() => setMobileMenuOpen(true)}
-                >
-                    ☰
-                </button>
+                <button className={styles.burger} onClick={() => setMobileMenuOpen(true)}>☰</button>
                 <div className={styles.logo}>LASER SOLA</div>
             </div>
 
@@ -74,12 +86,12 @@ const HeaderMain = () => {
                 <button onClick={() => setLoginOpen(true)}>
                     <User size={18} strokeWidth={1.2} />
                 </button>
+               < ThemeExplosionToggle />
                 <ShoppingBag size={18} strokeWidth={1.2} />
             </div>
-            <UserLoginModal isOpen={isLoginOpen} onClose={() => setLoginOpen(false)} />
-            {/* Burger icon - visible on mobile */}
 
-            {/* Mobile menu overlay */}
+            <UserLoginModal isOpen={isLoginOpen} onClose={() => setLoginOpen(false)} />
+
             {mobileMenuOpen && (
                 <div className={styles.mobileMenu}>
                     <button className={styles.close} onClick={() => setMobileMenuOpen(false)}>✕</button>
@@ -99,7 +111,6 @@ const HeaderMain = () => {
                 </div>
             )}
 
-            {/* Desktop mega dropdown */}
             {activeDropdown && (
                 <div className={styles.dropdown}>
                     {dropdownContent[activeDropdown]}
@@ -108,4 +119,5 @@ const HeaderMain = () => {
         </div>
     );
 };
+
 export default HeaderMain;
