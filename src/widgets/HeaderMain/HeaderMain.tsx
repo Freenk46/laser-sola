@@ -1,11 +1,13 @@
 import React, { useState, MouseEvent } from 'react';
 import {
     User, ShoppingBag,
+    Earth,
 } from 'lucide-react';
 import { UserLoginModal } from 'widgets/UserLoginModal/UserLoginModal';
 import styles from './HeaderMain.module.scss';
 import { useTheme } from 'app/providers/ThemeProvider/ThemeProvider';
 import { ThemeExplosionToggle } from 'widgets/ThemeExplosionToggle/ThemeExplosionToggle';
+import { LanguageDrawer } from 'shared/ui/LanguageDrawer/LanguageDrawer';
 
 interface HeaderMainProps {
     theme?: 'light' | 'dark';
@@ -19,6 +21,7 @@ const HeaderMain = ({ theme }: HeaderMainProps) => {
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [isLoginOpen, setLoginOpen] = useState(false);
+    const [drawerOpen, setDrawerOpen] = useState(false);
 
     const nav = [
         { navItem: 'LASER HAIR REMOVAL', path: '/LHR' },
@@ -83,11 +86,21 @@ const HeaderMain = ({ theme }: HeaderMainProps) => {
             </nav>
 
             <div className={styles.right}>
-                <button onClick={() => setLoginOpen(true)}>
-                    <User size={18} strokeWidth={1.2} />
+          
+                <button
+                onClick={() => setDrawerOpen(true)}
+                 className={styles.langToggleMobile}
+                 >
+               <Earth size={20} strokeWidth={1.2} color="var(--text-color)" />
+                 </button>
+  
+            <LanguageDrawer isOpen={drawerOpen} onClose={() => setDrawerOpen(false)} />
+            <button>
+            <ShoppingBag size={18} strokeWidth={1.2} color="var(--text-color)" />
+            </button>
+            <button      className={styles.langToggleMobile} onClick={() => setLoginOpen(true)}>
+                    <User size={20} strokeWidth={1.2} color="var(--text-color)"/>
                 </button>
-               < ThemeExplosionToggle />
-                <ShoppingBag size={18} strokeWidth={1.2} />
             </div>
 
             <UserLoginModal isOpen={isLoginOpen} onClose={() => setLoginOpen(false)} />

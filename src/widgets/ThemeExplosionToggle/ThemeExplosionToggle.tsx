@@ -1,6 +1,7 @@
 import React, { MouseEvent } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider/ThemeProvider';
 import { createThemeTransition } from 'shared/lib/theme/createThemeTransition';
+import { Sun } from 'lucide-react';
 
 export const ThemeExplosionToggle = () => {
   const { toggleTheme, theme } = useTheme();
@@ -24,7 +25,7 @@ export const ThemeExplosionToggle = () => {
     else {
       setTimeout(() => {
         toggleTheme();
-      }, 700); // დაუყოვნებლივ
+      }, 500); // დაუყოვნებლივ
     }
   };
 
@@ -41,7 +42,7 @@ export const ThemeExplosionToggle = () => {
       }}
       aria-label="Toggle theme"
     >
-      🌗
+      <Sun color="var(--text-color)"/>
     </button>
   );
 };

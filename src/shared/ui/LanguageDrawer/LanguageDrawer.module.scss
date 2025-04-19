@@ -1,0 +1,64 @@
+.drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 100vh;
+    background: var(--bg-color);
+    color: var(--text-color);
+    z-index: 999;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+  
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+  
+      h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+  
+      button {
+        background: none;
+        border: none;
+        font-size: 1.3rem;
+        cursor: pointer;
+        color: var(--text-color);
+      }
+    }
+  
+    p {
+      color: var(--text-muted-color, #888);
+      margin-bottom: 2rem;
+    }
+  
+    .selector {
+      font-weight: bold;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1rem;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    .menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+  
+      li {
+        padding: 0.75rem 1rem;
+        cursor: pointer;
+  
+        &:hover {
+          background: var(--secondary-color);
+        }
+      }
+    }
+  }
+  

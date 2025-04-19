@@ -75,6 +75,33 @@ $breakpoints: (
     --primary-color: #d4a373;
   }
   
+  /* === TopBar === */
+.topBarlight {
+  --bg-color: #ffffff;
+  --text-color: #111111;
+  --primary-color: #d4a373;
+}
+
+.topBardark {
+  --bg-color: #111111;
+  --text-color: #eeeeee;
+  --primary-color: #d4a373;
+}
+
+/* === Drawer === */
+.drawerlight {
+  --bg-color: #ffffff;
+  --text-color: #111111;
+  --border-color: #dddddd;
+  --secondary-color: #f9f9f9;
+}
+
+.drawerdark {
+  --bg-color: #111111;
+  --text-color: #eeeeee;
+  --border-color: #444444;
+  --secondary-color: #1c1c1c;
+}
 
 
 
