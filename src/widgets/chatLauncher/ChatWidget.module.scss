@@ -1,12 +1,18 @@
 // src/widgets/chatLauncher/ChatWidget.module.scss
 .chatWindow {
     position: fixed;
-    bottom: 5rem;
+    bottom: env(safe-area-inset-bottom, 0); // ✅ iPhone-safe enhancements
     right: 1rem;
     width: 100%;
     max-width: 420px;
-    height: 600px; // ფიქსირებული სიმაღლე
-    max-height: 80vh; // მაქსიმალური სიმაღლე
+    height: 100dvh; // ✅ iPhone-safe enhancements
+    max-height: 100dvh;
+
+    @supports not (height: 100dvh) {
+        height: 100vh;
+        max-height: 100vh;
+    }
+
     background-color: #000;
     color: #fff;
     display: flex;
@@ -126,7 +132,18 @@
 
 .greetingSection {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-top: 3rem;
+    button{
+        margin-bottom: 3rem;
+    }
+
+    h2{
+padding-bottom: 2rem;
+    }
+
+    p{
+        padding-bottom: 2rem;
+    }
 }
 
 .title {
@@ -306,6 +323,9 @@
     padding: 15px 0 0;
     border-top: 1px solid #222;
     margin-top: 10px;
+
+    // ✅ iPhone-safe enhancements
+    padding-bottom: calc(15px + env(safe-area-inset-bottom));
 }
 
 .attachButton {
@@ -351,18 +371,17 @@
     border-radius: 20px;
     background-color: #111;
     color: #fff;
-    font-size: 0.95rem;
-    
+    font-size: 1rem; // ✅ iOS zoom bug fix
+
     &:focus {
         outline: none;
         border-color: #444;
     }
-    
+
     &::placeholder {
         color: #777;
     }
 }
-
 .sendButton {
     width: 40px;
     height: 40px;
@@ -479,7 +498,7 @@
 
 .emojiPicker {
     position: absolute;
-    bottom: 70px;
+    bottom: calc(70px + env(safe-area-inset-bottom)); // ✅ iPhone-safe
     right: 10px;
     z-index: 100;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -488,6 +507,7 @@
     animation: fadeIn 0.2s ease;
 }
 
+
 // მობილური მოწყობილობებისთვის რესპონსიული დიზაინი
 @media (max-width: 480px) {
     .chatWindow {
@@ -495,11 +515,16 @@
         width: 100%;
         right: 0;
         bottom: 0;
-        height: 100vh;
-        max-height: 100vh;
+        height: 100dvh;
+        max-height: 100dvh;
         border-radius: 0;
+
+        @supports not (height: 100dvh) {
+            height: 100vh;
+            max-height: 100vh;
+        }
     }
-    
+
     .message {
         max-width: 90%;
     }
@@ -508,8 +533,10 @@
         width: 90% !important;
         left: 5%;
         right: 5%;
+        bottom: calc(70px + env(safe-area-inset-bottom));
     }
 }
+
 
 // სეთინგების მოდალის სტილები
 .settingsModal {

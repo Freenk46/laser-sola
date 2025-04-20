@@ -8,9 +8,10 @@ interface ChatInputProps {
   inputValue: string;
   onInputChange: (val: string) => void;
   onSend: () => void;
+  onFocus:() => void;
 }
 
-const ChatInput = ({ inputValue, onInputChange, onSend }: ChatInputProps) => {
+const ChatInput = ({ inputValue, onInputChange, onSend , onFocus}: ChatInputProps) => {
   return (
     <div className={styles.inputContainer}>
       <EmojiPicker onEmojiSelect={(emoji) => onInputChange(inputValue + emoji)} />
@@ -20,11 +21,13 @@ const ChatInput = ({ inputValue, onInputChange, onSend }: ChatInputProps) => {
         className={styles.chatInput}
         placeholder="დაწერეთ შეტყობინება..."
         value={inputValue}
+        onFocus={onFocus}
         onChange={(e) => onInputChange(e.target.value)}
         onKeyDown={(e) => {
           if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
             onSend();
+          
           }
         }}
       />

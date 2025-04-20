@@ -49,6 +49,20 @@ const ChatWidget = ({ onClose }: { onClose: () => void }) => {
   }, []);
 
   useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
+  const handleInputFocus = () => {
+    setMessages(prev =>
+      prev.map(msg =>
+        !msg.isUser && msg.status === MessageStatus.DELIVERED
+          ? { ...msg, status: MessageStatus.READ }
+          : msg
+      )
+    );
+    setUnreadCount(0);
+  };
+  useEffect(() => {
     const handleNewMessage = (msg: Message) => {
       if (msg.sessionId !== sessionId) return;
 
@@ -255,6 +269,7 @@ const ChatWidget = ({ onClose }: { onClose: () => void }) => {
               inputValue={inputValue}
               onInputChange={setInputValue}
               onSend={handleSend}
+              onFocus={handleInputFocus}
             />
           </div>
         )}
