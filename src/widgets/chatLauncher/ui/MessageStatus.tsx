@@ -1,7 +1,7 @@
 // src/widgets/chatLauncher/ui/MessageStatus.tsx
 
 import { Check, CheckCheck, Eye, X, RefreshCw, Clock } from 'lucide-react';
-import styles from '../ChatWidget.module.scss';
+import styles from'../Chatwidget.module.scss';
 import { Message, MessageStatus as StatusEnum } from '../types';
 
 type Props = {
