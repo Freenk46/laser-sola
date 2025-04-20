@@ -1,11 +1,15 @@
 import { Search, ChevronRight } from 'lucide-react';
 import styles from './FAQHelpTopics.module.scss';
 import { topics } from './faqData';
-
+type Topic = {
+    id: string;
+    question: string;
+    answer: string;
+  }
 const FAQHelpTopics = ({
     onSelect,
 }: {
-    onSelect: (data: { question: string; answer: string }) => void;
+    onSelect: (data:  Topic  ) => void;
 }) => (
     <div className={styles.topicsContainer}>
         <div className={styles.searchBox}>
@@ -18,7 +22,10 @@ const FAQHelpTopics = ({
                 <li
                     key={index}
                     className={styles.topicItem}
-                    onClick={() => onSelect(item)}
+                    onClick={() => onSelect({
+                        question: item.question, answer: item.answer,
+                        id: ''
+                    })}
                 >
                     <span>{item.question}</span>
                     <ChevronRight size={16} />

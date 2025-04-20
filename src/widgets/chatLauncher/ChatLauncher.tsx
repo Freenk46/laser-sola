@@ -6,10 +6,18 @@ import styles from './ChatLauncher.module.scss';
 const ChatLauncher = () => {
     const [isOpen, setIsOpen] = useState(false);
 
+    const toggleChat = () => {
+        setIsOpen((prev) => !prev);
+    };
+
     return (
         <>
             {isOpen && <ChatWidget onClose={() => setIsOpen(false)} />}
-            <button className={styles.launcher} onClick={() => setIsOpen(true)}>
+            <button 
+                className={styles.launcher} 
+                onClick={toggleChat} 
+                aria-label="ჩატის გახსნა"
+            >
                 <MessageCircle size={20} />
             </button>
         </>

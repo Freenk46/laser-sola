@@ -1,0 +1,99 @@
+// src/widgets/chatLauncher/FileUpload.module.scss
+.fileUploadContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .fileInput {
+    display: none;
+  }
+  
+  .attachButton {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+  }
+  
+  .selectedFile {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 16px;
+    margin-right: 8px;
+    max-width: 200px;
+  }
+  
+  .fileTypeIcon {
+    margin-right: 4px;
+  }
+  
+  .fileName {
+    font-size: 0.75rem;
+    margin: 0 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .removeButton {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: #fff;
+    }
+  }
+  
+  .dropZone {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px dashed #555;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    
+    p {
+      color: #fff;
+      font-size: 0.9rem;
+    }
+  }
+  
+  .errorMessage {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    background-color: #ff4d4f;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
