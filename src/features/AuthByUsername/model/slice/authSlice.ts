@@ -2,6 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { loginByUsername } from '../services/loginByUsername/loginByUsername';
 import { logoutUser } from '../services/logoutUser';
 import { AuthSchema, User } from '../types';
+import { initAuth } from '../services/initAuth';
+
 
 const initialState: AuthSchema = {
   authData: null,
@@ -16,6 +18,7 @@ const authSlice = createSlice({
     setAuthData: (state, action: PayloadAction<User>) => {
       state.authData = { ...action.payload }; // Immer friendly
       state.error = null;
+      console.log('📤 Sending login request:', { ...action.payload});
     },
     logout: (state) => {
       state.authData = null;
@@ -41,7 +44,20 @@ const authSlice = createSlice({
         state.authData = null;
         state.loading = false;
         state.error = null;
+      })
+      .addCase(initAuth.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(initAuth.fulfilled, (state, action) => {
+        state.loading = false;
+        state.authData = { ...action.payload };
+      })
+      .addCase(initAuth.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload as string;
       });
+      
   },
 });
 

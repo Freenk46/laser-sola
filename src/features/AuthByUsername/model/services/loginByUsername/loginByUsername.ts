@@ -14,12 +14,16 @@ export const loginByUsername = createAsyncThunk<
   LoginParams,
   { rejectValue: string }
 >('auth/loginByUsername', async ({ email, password }, thunkAPI) => {
+    console.log('📤 Sending login request:', { email, password });
   try {
     const res = await fetch(`${BASE_URL}/api/auth/login`, {
+        
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
+      
     });
+   
 
     if (!res.ok) {
       const error = await res.json();
@@ -27,13 +31,15 @@ export const loginByUsername = createAsyncThunk<
     }
 
     const data = await res.json();
-
+    
     setAccessToken(data.accessToken);
     setRefreshToken(data.refreshToken);
     thunkAPI.dispatch(setAuthData(data.user));
-
+ 
     return data.user;
+    
   } catch (err) {
+    
     return thunkAPI.rejectWithValue('ქსელური შეცდომა');
   }
 });

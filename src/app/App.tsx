@@ -9,6 +9,7 @@ import Footer from 'shared/ui/Footer/Footer';
 import TopBar from 'widgets/TopBar/TopBar';
 import HeaderMain from 'widgets/HeaderMain/HeaderMain';
 import ChatLauncher from 'widgets/chatLauncher/ChatLauncher';
+import { initAuth } from 'features/AuthByUsername/model/services/initAuth';
 
 
 
@@ -17,6 +18,11 @@ import ChatLauncher from 'widgets/chatLauncher/ChatLauncher';
 function App() {
     const { theme } = useTheme();
     const dispatch = useDispatch();
+   
+
+    useEffect(() => {
+      dispatch(initAuth());
+    }, [dispatch]);
     
 
     useEffect(() => {
