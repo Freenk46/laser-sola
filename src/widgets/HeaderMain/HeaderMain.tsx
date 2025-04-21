@@ -3,11 +3,11 @@ import {
     User, ShoppingBag,
     Earth,
 } from 'lucide-react';
-import { UserLoginModal } from 'widgets/UserLoginModal/UserLoginModal';
+import { UserLoginModal } from 'shared/ui/AuthModalManager/ui/UserLoginModal/UserLoginModal';
 import styles from './HeaderMain.module.scss';
 import { useTheme } from 'app/providers/ThemeProvider/ThemeProvider';
-import { ThemeExplosionToggle } from 'widgets/ThemeExplosionToggle/ThemeExplosionToggle';
 import { LanguageDrawer } from 'shared/ui/LanguageDrawer/LanguageDrawer';
+import { AuthModalManager, AuthModalType } from 'shared/ui/AuthModalManager/AuthModalManager';
 
 interface HeaderMainProps {
     theme?: 'light' | 'dark';
@@ -20,8 +20,12 @@ const HeaderMain = ({ theme }: HeaderMainProps) => {
 
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [isLoginOpen, setLoginOpen] = useState(false);
     const [drawerOpen, setDrawerOpen] = useState(false);
+
+    const [isModalOpen, setIsModalOpen] = useState(true); // როცა გინდა რომ გაიხსნას
+    const handleCloseModal = () => setIsModalOpen(false);
+
+    const [authModal, setAuthModal] = useState<AuthModalType>(null);
 
     const nav = [
         { navItem: 'LASER HAIR REMOVAL', path: '/LHR' },
@@ -98,12 +102,16 @@ const HeaderMain = ({ theme }: HeaderMainProps) => {
             <button>
             <ShoppingBag size={18} strokeWidth={1.2} color="var(--text-color)" />
             </button>
-            <button      className={styles.langToggleMobile} onClick={() => setLoginOpen(true)}>
+            <button      className={styles.langToggleMobile}  onClick={() => setAuthModal('login')}>
                     <User size={20} strokeWidth={1.2} color="var(--text-color)"/>
                 </button>
             </div>
-
-            <UserLoginModal isOpen={isLoginOpen} onClose={() => setLoginOpen(false)} />
+        <AuthModalManager
+             activeModal={authModal}
+               onClose={() => setAuthModal(null)}
+            onSwitchToLogin={() => setAuthModal('login')}
+             onSwitchToRegister={() => setAuthModal('register')}
+            />
 
             {mobileMenuOpen && (
                 <div className={styles.mobileMenu}>

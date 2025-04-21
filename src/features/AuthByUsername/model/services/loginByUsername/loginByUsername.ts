@@ -1,41 +1,39 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { User } from "../../types";
-import { setAccessToken } from "../../services/authService";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { User } from '../../types';
+import { setAccessToken, setRefreshToken } from '../authService';
+import { setAuthData } from '../../slice/authSlice';
 
+const BASE_URL = 'https://khsol-nest.onrender.com';
 interface LoginParams {
-    email: string;
-    password: string;
+  email: string;
+  password: string;
 }
 
-export const loginByUsername = createAsyncThunk<User, LoginParams, { rejectValue: string }>(
-    "auth/loginByUsername",
-    async ({ email, password }, thunkAPI) => {
-        try {
-            const response = await fetch("/api/auth/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ email, password }),
-            });
+export const loginByUsername = createAsyncThunk<
+  User,
+  LoginParams,
+  { rejectValue: string }
+>('auth/loginByUsername', async ({ email, password }, thunkAPI) => {
+  try {
+    const res = await fetch(`${BASE_URL}/api/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+    });
 
-            if (!response.ok) {
-                const error = await response.json();
-                return thunkAPI.rejectWithValue(error.message || "Login failed");
-            }
-
-            const data = await response.json();
-
-            // Save token locally
-            setAccessToken(data.accessToken);
-
-            return {
-                id: data.user.id,
-                name: data.user.name,
-                email: data.user.email,
-            };
-        } catch (err) {
-            return thunkAPI.rejectWithValue("Network error");
-        }
+    if (!res.ok) {
+      const error = await res.json();
+      return thunkAPI.rejectWithValue(error.message || 'შეცდომა ავტორიზაციისას');
     }
-);
+
+    const data = await res.json();
+
+    setAccessToken(data.accessToken);
+    setRefreshToken(data.refreshToken);
+    thunkAPI.dispatch(setAuthData(data.user));
+
+    return data.user;
+  } catch (err) {
+    return thunkAPI.rejectWithValue('ქსელური შეცდომა');
+  }
+});

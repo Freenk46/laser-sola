@@ -1,19 +1,28 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { clearAccessToken } from "./authService";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { clearTokens } from './authService';
+import { logout } from '../slice/authSlice';
+const BASE_URL = 'https://khsol-nest.onrender.com';
+export const logoutUser = createAsyncThunk<void, void, { rejectValue: string }>(
+  'auth/logoutUser',
+  async (_, thunkAPI) => {
+    try {
+      // სერვერზე optional logout თხოვნა (თუ არსებობს)
+      await fetch(`${BASE_URL}/api/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          refreshToken: localStorage.getItem('refreshToken'), // თუ ასე ინახავ
+        }),
+      });
 
-export const logoutUser = createAsyncThunk(
-    "auth/logoutUser",
-    async (_, thunkAPI) => {
-        try {
-            // optional: სერვერზე logout API თუ გექნება
-            await fetch("/api/auth/logout", {
-                method: "POST",
-                credentials: "include",
-            });
-        } catch (err) {
-            console.warn("Logout API failed, fallback to local clear");
-        } finally {
-            clearAccessToken(); // ვშლით access token-ს
-        }
+      clearTokens(); // წაშალე localStorage-დან ორივე token-ი
+      thunkAPI.dispatch(logout()); // გაწმინდე Redux authData
+    } catch (error) {
+      clearTokens();
+      thunkAPI.dispatch(logout());
+      return thunkAPI.rejectWithValue('Logout failed');
     }
+  }
 );

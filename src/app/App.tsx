@@ -10,9 +10,14 @@ import TopBar from 'widgets/TopBar/TopBar';
 import HeaderMain from 'widgets/HeaderMain/HeaderMain';
 import ChatLauncher from 'widgets/chatLauncher/ChatLauncher';
 
+
+
+
+
 function App() {
     const { theme } = useTheme();
     const dispatch = useDispatch();
+    
 
     useEffect(() => {
         dispatch(userActions.initAuthData());
@@ -30,6 +35,7 @@ function App() {
                 <ChatLauncher />
                 <Footer />
             </Suspense>
+       
         </div>
     );
 }

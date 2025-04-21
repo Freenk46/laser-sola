@@ -1,5 +1,4 @@
 import React from 'react';
-import ContactForm from 'features/ContactForm/ContactForm';
 import ContactInfoBlock from 'shared/ui/ContactInfoBlock/ContactInfoBlock';
 import MapEmbed from 'shared/ui/MapEmbed/MapEmbed';
 import SocialLinks from 'shared/ui/SocialLinks/SocialLinks';
@@ -11,7 +10,6 @@ const ContactPage = () => (
 
         <div className={styles.grid}>
             <div className={styles.left}>
-                <ContactForm />
             </div>
 
             <div className={styles.right}>
