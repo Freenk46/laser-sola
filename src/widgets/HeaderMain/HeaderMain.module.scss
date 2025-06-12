@@ -23,6 +23,7 @@
       font-weight: bold;
       letter-spacing: 0.15rem;
       color: var(--text-color);
+      line-height: 0.8;
     }
   }
 
@@ -69,9 +70,11 @@
     gap: 1.2rem;
     color: var(--text-color);
    
+   
 
     button{
-      padding: 0 0.5rem;
+      padding: 0 0.1rem;
+      
       color: var(--icon-color);
     }
     svg {
