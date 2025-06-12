@@ -21,7 +21,16 @@ const MembershipSection: React.FC<MembershipSectionProps> = ({
   return (
     <div className={`${styles.membershipContainer} ${className || ''}`}>
       {/* Section 1 - Image */}
+      <div className={`${styles.section} ${styles.imageSection}`}>
+        <div className={styles.logoContainer}>
+          <h1 className={styles.logo}>  LASER SOLA+</h1>
+        </div>
+      </div>
 
+      {/* Section 2 - Content */}
+  
+      
+      
       <div className={`${styles.section} ${styles.contentSection}`}>
         <div className={styles.content}>
           <h2 className={styles.title}>წევრობა, რომელიც ნამდვილად გიღირს!</h2>
@@ -32,37 +41,7 @@ const MembershipSection: React.FC<MembershipSectionProps> = ({
           <button className={styles.ctaButton}>შემოგვიერთდი ახლა უფასოდ</button>
         </div>
       </div>
-      {/* Section 2 - Content */}
-  
-      <div className={`${styles.section} ${styles.imageSection}`}>
-        <div className={styles.logoContainer}>
-          <h1 className={styles.logo}>  LASER SOLA+</h1>
-        </div>
-      </div>
       {/* Section 3 - Benefits */}
-
-      <div className={`${styles.section} ${styles.benefitsSection}`}>
-        <div className={styles.benefitsContent}>
-          <h3 className={styles.benefitsTitle}> მიიღე მეტი ! </h3>
-          <p className={styles.benefitsDescription}>
-          შემოგვიერთდი ჩვენი უფასო წევრობის პროგრამაში და მიიღე ექსკლუზიური წვდომა სპეციალურ აქციებზე, მხოლოდ წევრებისთვის განკუთვნილ
-           სერვისებზე და სხვა მრავალ პრივილეგიაზე.
-          </p>
-          <p className={styles.terms}>
-          რეგისტრაცია შესაძლებელია სალონში, ონლაინ ან Laser Sola აპით. <span className={styles.link}>T&Cs apply</span>.
-          </p>
-          
-          <div className={styles.benefitsList}>
-            <div className={styles.benefitItem}>ექსკლუზიური ფასდაკლებები წევრებისთვის</div>
-          
-          </div>
-        </div>
-      </div>
-
-      {/* Section 4 - Video */}
-    
-
-      
       <div className={`${styles.section} ${styles.videoSection}`}>
         <div className={styles.videoContainer}>
           {videoSrc ? (
@@ -84,6 +63,29 @@ const MembershipSection: React.FC<MembershipSectionProps> = ({
           
         </div>
       </div>
+      
+
+      {/* Section 4 - Video */}
+      <div className={`${styles.section} ${styles.benefitsSection}`}>
+        <div className={styles.benefitsContent}>
+          <h3 className={styles.benefitsTitle}> მიიღე მეტი ! </h3>
+          <p className={styles.benefitsDescription}>
+          შემოგვიერთდი ჩვენი უფასო წევრობის პროგრამაში და მიიღე ექსკლუზიური წვდომა სპეციალურ აქციებზე, მხოლოდ წევრებისთვის განკუთვნილ
+           სერვისებზე და სხვა მრავალ პრივილეგიაზე.
+          </p>
+          <p className={styles.terms}>
+          რეგისტრაცია შესაძლებელია სალონში, ონლაინ ან Laser Sola აპით. <span className={styles.link}>T&Cs apply</span>.
+          </p>
+          
+          <div className={styles.benefitsList}>
+            <div className={styles.benefitItem}>ექსკლუზიური ფასდაკლებები წევრებისთვის</div>
+          
+          </div>
+        </div>
+      </div>
+
+      
+      
     </div>
   );
 };
