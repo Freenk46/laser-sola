@@ -1,5 +1,5 @@
 import { io } from 'socket.io-client';
 
-const socket = io('https://khsol-nest.onrender.com'); // შენი სერვერის URL
+const socket = io('//localhost:5000'); // შენი სერვერის URL
 
 export default socket;

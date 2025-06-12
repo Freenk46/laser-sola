@@ -35,8 +35,8 @@
 .overlay {
     position: fixed;
     inset: 0;
-    background: rgb(0 0 0 / 60%);
-    backdrop-filter: blur(6px);
+    background:  rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(0.3px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,29 +45,26 @@
     animation: fadeIn 0.3s ease-out;
 }
 
-.modal {
-    background: #fff;
+.authmodal {
+    background: var(--bg-color);
     padding: 2rem;
     width: 100%;
     max-width: 400px;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 25px var(--shadow-color);
     animation: fadeInUp 0.4s ease-out;
     position: relative;
     max-height: 90vh;
     overflow-y: auto;
 }
 
-// მოდალის ჰედერი
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #000;
-    color: #fff;
+    background: var(--button-bg);
+    color: var(--button-text);
     padding: 1.25rem;
     margin: -2rem -2rem 1.5rem;
-    border-radius: 10px 10px 0 0;
     position: sticky;
     top: -2rem;
     z-index: 1;
@@ -77,19 +74,20 @@
         font-weight: 600;
         text-transform: uppercase;
         margin: 0;
+        color: var(--heading-color);
     }
 
     .brand {
         font-weight: 600;
         margin-right: 0.5rem;
         font-size: 1.2rem;
-        color: #fff;
+        color: var(--button-text);
     }
 
     .close {
         background: none;
         border: none;
-        color: #fff;
+        color: var(--button-text);
         font-size: 1.8rem;
         cursor: pointer;
         padding: 0.25rem 0.5rem;
@@ -108,7 +106,6 @@
     }
 }
 
-// სოციალური მედიის ღილაკები
 .social {
     display: flex;
     flex-direction: column;
@@ -118,9 +115,9 @@
 
 .socialBtn {
     padding: 0.9rem;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--border-color);
     font-weight: 500;
-    background: #fff;
+    background: var(--bg-color);
     cursor: pointer;
     border-radius: 6px;
     transition: all 0.2s;
@@ -139,66 +136,59 @@
     }
 
     &:hover {
-        background: #f9f9f9;
-        border-color: #ccc;
+        background: var(--secondary-color);
+        border-color: var(--border-color);
     }
 
     &:focus {
-        outline: 2px solid rgba(0, 0, 0, 0.2);
+        outline: 2px solid var(--text-color);
         outline-offset: 2px;
     }
 }
 
 .googleBtn {
-    color: #444;
-    
+    color: var(--text-color);
     .icon {
         color: #4285F4;
     }
-    
     &:hover {
         background: #f1f5fe;
     }
 }
 
 .appleBtn {
-    color: #000;
-    
+    color: var(--text-color);
     &:hover {
         background: #f5f5f7;
     }
 }
 
 .facebookBtn {
-    color: #444;
-    
+    color: var(--text-color);
     .icon {
         color: #1877F2;
     }
-    
     &:hover {
         background: #f0f2f5;
     }
 }
 
-// გამყოფი ხაზი
 .divider {
     text-align: center;
-    color: #888;
+    color: var(--muted-text-color);
     margin: 1.5rem 0;
     display: flex;
     align-items: center;
     font-size: 0.9rem;
-    
+
     &::before, &::after {
         content: '';
         flex: 1;
-        border-top: 1px solid #e0e0e0;
+        border-top: 1px solid var(--divider-color);
         margin: 0 0.8rem;
     }
 }
 
-// შესვლის ფორმა
 .form {
     display: flex;
     flex-direction: column;
@@ -212,7 +202,7 @@
 }
 
 .errorMessage {
-    color: #e53935;
+    color: var(--error-color);
     font-size: 0.8rem;
     margin-top: 0.3rem;
     animation: fadeIn 0.3s;
@@ -220,35 +210,37 @@
 
 input {
     padding: 0.9rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--input-border-color);
     border-radius: 6px;
     font-size: 1rem;
     transition: all 0.2s;
-    
+    background-color: var(--input-bg-color);
+    color: var(--text-color);
+
     &::placeholder {
-        color: #aaa;
+        color: var(--muted-text-color);
     }
-    
+
     &:focus {
         outline: none;
-        border-color: #000;
+        border-color: var(--text-color);
         box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
     }
-    
+
     &[aria-invalid="true"] {
-        border-color: #e53935;
+        border-color: var(--error-color);
         animation: shake 0.4s;
     }
 }
 
 .passwordInput {
     position: relative;
-    
+
     input {
         width: 100%;
         padding-right: 40px;
     }
-    
+
     .passwordToggle {
         position: absolute;
         right: 0;
@@ -261,11 +253,11 @@ input {
         display: flex;
         align-items: center;
         justify-content: center;
-        
+
         &:hover {
-            color: #000;
+            color: var(--text-color);
         }
-        
+
         &:focus {
             outline: none;
         }
@@ -275,23 +267,22 @@ input {
 .forgotPassword {
     text-align: right;
     margin-top: -0.3rem;
-    
+
     a {
-        color: #666;
+        color: var(--muted-text-color);
         font-size: 0.85rem;
         text-decoration: none;
-        
+
         &:hover {
             text-decoration: underline;
-            color: #000;
+            color: var(--text-color);
         }
     }
 }
 
-// შესვლის ღილაკი
 .signIn {
-    background: #000;
-    color: #fff;
+    background: var(--button-bg);
+    color: var(--button-text);
     font-weight: 600;
     border: none;
     padding: 1rem;
@@ -299,70 +290,68 @@ input {
     cursor: pointer;
     border-radius: 6px;
     transition: all 0.2s;
-    
+
     &:hover {
-        background: #222;
+        background: var(--button-hover-bg);
     }
-    
+
     &:focus {
         outline: 2px solid rgba(0, 0, 0, 0.3);
         outline-offset: 2px;
     }
-    
+
     &:disabled {
         background: #666;
         cursor: not-allowed;
     }
 }
 
-// ფუტერი
 .footer {
     margin-top: 1.5rem;
     font-size: 0.95rem;
     text-align: center;
-    color: #666;
+    color: var(--muted-text-color);
 
     a {
-        color: #000;
+        color: var(--text-color);
         font-weight: 500;
         text-decoration: none;
         margin-left: 0.3rem;
-        
+
         &:hover {
             text-decoration: underline;
         }
     }
 }
 
-// მედია მოთხოვნები მობილური მოწყობილობებისთვის
 @media (max-width: 480px) {
-    .modal {
+    .authmodal {
         padding: 1.5rem;
         border-radius: 12px;
         max-width: 100%;
         max-height: 85vh;
     }
-    
+
     .header {
         padding: 1rem;
         margin: -1.5rem -1.5rem 1.2rem;
         border-radius: 12px 12px 0 0;
         top: -1.5rem;
-        
+
         h2 {
             font-size: 1rem;
         }
-        
+
         .brand {
             font-size: 1.1rem;
         }
     }
-    
+
     .socialBtn {
         padding: 0.8rem;
         font-size: 0.9rem;
     }
-    
+
     input, .signIn {
         padding: 0.85rem;
     }

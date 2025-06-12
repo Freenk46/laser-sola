@@ -13,6 +13,7 @@ const navLinks = [
   'ჩვენს შესახებ',
   'დახმარება',
   'კითხვები და პასუხები',
+  
 ];
 
 interface TopBarProps {
@@ -23,7 +24,7 @@ interface TopBarProps {
 const TopBar = ({ theme }: TopBarProps) => {
   const [index, setIndex] = useState(0);
       const contextTheme = useTheme().theme;  
-      const appliedTheme =    `topBar${theme || contextTheme}`;
+      const appliedTheme =    `topBar${contextTheme}`;
 
   const prev = () => {
     setIndex((prevIndex) => (prevIndex === 0 ? messages.length - 1 : prevIndex - 1));
@@ -57,8 +58,6 @@ const TopBar = ({ theme }: TopBarProps) => {
       </div>
   
                < ThemeExplosionToggle  />
-          
-      
     </div>
   );
 };

@@ -1,6 +1,6 @@
 {
     "highlightSection": {
-        "videoSrc": "/media/123.mp4",
+        "videoSrc": "/media/3.mp4",
         "heading": "საოცარი ხარისხი",
         "paragraphs": [
             "ჩვენი აღჭურვილობა საუკეთესოა.",
@@ -14,7 +14,23 @@
         "title": "შენი კანის მოვლა",
         "description": "ჩვენ დაგეხმარებით შექმნაში პერსონალური კანის მოვლის რუტინის...",
         "buttonText": "გაიგე მეტი",
-        "imageSrc": "/images/2.jpg",
+        "imageSrc": "https://www.laserclinics.co.uk/contentassets/01f6ca83c2dd4c2a9bf10d2238258949/bbs-homepage-banner.png?width=1920&mode=max",
         "imageAlt": "Model with stacked jewelry"
-    }
+    },
+    "scrollingStores": {
+    "items": [
+      "ლაზერული ეპილაცია",
+      "კანის მკურნალობა",
+      "ბათუმი",
+      "სხეულის კონტურის ფორმირება",
+      "ჰიდრაფეიშალი",
+      "აკნეს მოგვარება",
+      "პიგმენტაციის კორექცია",
+      "ბათუმი",
+      "Greenway",
+      "კოსმეტიკური ინიექციები"
+    ],
+    "speed": 20,
+    "direction": "left"
+  }
 }

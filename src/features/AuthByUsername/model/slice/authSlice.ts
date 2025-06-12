@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { loginByUsername } from '../services/loginByUsername/loginByUsername';
-import { logoutUser } from '../services/logoutUser';
 import { AuthSchema, User } from '../types';
-import { initAuth } from '../services/initAuth';
+import { loginByUsername } from '../services/loginByUsername/loginByUsername';
 
+import { initAuth } from '../services/initAuth';
+import { logoutUser } from '../services/logoutUser';
+import { registerUser } from 'features/RegisterUser/model/services/registerUser';
 
 const initialState: AuthSchema = {
   authData: null,
@@ -16,18 +17,18 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setAuthData: (state, action: PayloadAction<User>) => {
-      state.authData = { ...action.payload }; // Immer friendly
+      state.authData = { ...action.payload };
       state.error = null;
-      console.log('📤 Sending login request:', { ...action.payload});
     },
-    logout: (state) => {
+    clearAuthData: (state) => {
       state.authData = null;
-      state.loading = false;
       state.error = null;
+      state.loading = false;
     },
   },
   extraReducers: (builder) => {
     builder
+      // 🔐 Login
       .addCase(loginByUsername.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -38,13 +39,24 @@ const authSlice = createSlice({
       })
       .addCase(loginByUsername.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload as string;
+        state.error = action.payload || 'Login failed';
       })
-      .addCase(logoutUser.fulfilled, (state) => {
-        state.authData = null;
-        state.loading = false;
+
+      // 🧾 Registration
+      .addCase(registerUser.pending, (state) => {
+        state.loading = true;
         state.error = null;
       })
+      .addCase(registerUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.authData = { ...action.payload };
+      })
+      .addCase(registerUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || 'Registration failed';
+      })
+
+      // 🔁 Init Auth
       .addCase(initAuth.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -55,11 +67,17 @@ const authSlice = createSlice({
       })
       .addCase(initAuth.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload as string;
+        state.error = action.payload || 'Auth check failed';
+      })
+
+      // 🚪 Logout
+      .addCase(logoutUser.fulfilled, (state) => {
+        state.authData = null;
+        state.loading = false;
+        state.error = null;
       });
-      
   },
 });
 
-export const { setAuthData, logout } = authSlice.actions;
+export const { setAuthData, clearAuthData } = authSlice.actions;
 export default authSlice.reducer;

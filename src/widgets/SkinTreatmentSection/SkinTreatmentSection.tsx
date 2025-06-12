@@ -20,7 +20,6 @@ export const SkinTreatmentSection = () => {
                     <p className={styles.description}>
                         როგორიც არ უნდა იყოს თქვენი კანის საზრუნავი, ჩვენ გვაქვს გამოცდილება, ცოდნა და პროფესიონალური კანის პროცედურები საუკეთესო შედეგების მისაღწევად. ჩვენი მაღალკვალიფიციური თერაპევტების გუნდი დაგეხმარებათ თქვენი პრობლემების იდენტიფიცირებაში და თქვენი კანის მიზნების მიხედვით მკურნალობის გეგმის შედგენაში.
                     </p>
-
                     <div className={styles.linkList}>
                         {treatmentLinks.map((text, idx) => (
                             <a key={idx} href="#" className={styles.link}>
@@ -28,7 +27,6 @@ export const SkinTreatmentSection = () => {
                             </a>
                         ))}
                     </div>
-
                     <div className={styles.buttons}>
                         <button className={styles.primaryBtn}>იხილეთ ყველა კანის პროცედურა</button>
                         <button className={styles.secondaryBtn}>დაჯავშნეთ ახლავე</button>

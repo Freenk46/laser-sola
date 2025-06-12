@@ -1,0 +1,390 @@
+.cartPage {
+    min-height: 100vh;
+    background-color: #f9fafb;
+  }
+  
+  .progressSection {
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    background-color: #eaedf3;
+    
+  }
+  
+  .progressContainer {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #eaedf3;
+    
+  }
+  
+  .progressSteps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .progressStep {
+    display: flex;
+    align-items: center;
+ 
+  }
+  
+  .stepButton {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background-color: #d1d5db;
+    color: #374151;
+    
+    &.active {
+      background-color: #000;
+      color: white;
+    }
+  }
+  
+  .mainContainer {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .continueShoppingBtn {
+    display: flex;
+    align-items: center;
+    color: #6b7280;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    
+    &:hover {
+      color: #1f2937;
+    }
+  }
+  
+  .backIcon {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+  }
+  
+  .pageTitle {
+    font-size: 1.875rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .clinicInfo {
+    margin-bottom: 1.5rem;
+    color: #6b7280;
+    
+    p {
+      margin-bottom: 0.5rem;
+    }
+  }
+  
+  .changeClinicBtn {
+    color: #2563eb;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 0.25rem;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  .cartContainer {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .cartHeader {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #374151;
+  }
+  
+  .treatmentCol {
+    grid-column: span 1;
+  }
+  
+  .quantityCol {
+    text-align: center;
+    min-width: 120px;
+  }
+  
+  .amountCol {
+    text-align: right;
+    min-width: 120px;
+  }
+  
+  .actionCol {
+    min-width: 40px;
+  }
+  
+  .cartItem {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    align-items: center;
+  }
+  
+  .treatmentInfo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .treatmentImage {
+    width: 3rem;
+    height: 3rem;
+    background-color: #e5e7eb;
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-right: 1rem;
+  }
+  
+  .treatmentName {
+    font-weight: 500;
+  }
+  
+  .quantityControls {
+    display: flex;
+    align-items: center;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    justify-content: center;
+  }
+  
+  .quantityBtn {
+    padding: 0.25rem 0.75rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+    &:hover {
+      background-color: #f3f4f6;
+    }
+  }
+  
+  .quantityValue {
+    padding: 0.25rem 1rem;
+    background-color: #fbbf24;
+    font-weight: 500;
+    min-width: 3rem;
+    text-align: center;
+  }
+  
+  .priceInfo {
+    text-align: right;
+  }
+  
+  .price {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+  }
+  
+  .savings {
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+  
+  .removeBtn {
+    color: #9ca3af;
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+    &:hover {
+      color: #ef4444;
+    }
+  }
+  
+  .removeIcon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  
+  .promoSection {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .promoControls {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 28rem;
+  }
+  
+  .promoInput {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    outline: none;
+    
+    &:focus {
+      ring: 2px;
+      ring-color: #3b82f6;
+    }
+  }
+  
+  .promoBtn {
+    padding: 0.5rem 1.5rem;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    
+    &:hover {
+      background-color: #1f2937;
+    }
+  }
+  
+  .summarySection {
+    padding: 1.5rem;
+  }
+  
+  .summaryContainer {
+    display: flex;
+    justify-content: flex-end;
+    
+    > div {
+      width: 16rem;
+    }
+  }
+  
+  .totalSavings {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+  
+  .cartTotal {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 1.125rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .paymentSection {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+  
+  .paymentLabel {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 0.75rem;
+  }
+  
+  .paymentMethods {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .paymentIcon {
+    width: 2.5rem;
+    height: 1.5rem;
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    
+    &.mastercard {
+      background-color: #ef4444;
+    }
+    
+    &.visa {
+      background-color: #2563eb;
+    }
+    
+    &.amex {
+      background-color: #3b82f6;
+    }
+    
+    &.applepay {
+      background-color: #000;
+    }
+    
+    &.paypal {
+      background-color: #10b981;
+    }
+    
+    &.klarna {
+      background-color: #ec4899;
+    }
+  }
+  
+  .checkoutSection {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .checkoutBtn {
+    padding: 0.75rem 2rem;
+    background-color: #000;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    
+    &:hover {
+      background-color: #1f2937;
+    }
+  }
+  
+  // Responsive Design
+  @media (max-width: 768px) {
+    .cartHeader,
+    .cartItem {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      text-align: left;
+    }
+    
+    .quantityCol,
+    .amountCol {
+      text-align: left;
+    }
+    
+    .progressSteps {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .summaryContainer {
+      justify-content: stretch;
+      
+      > div {
+        width: 100%;
+      }
+    }
+  }

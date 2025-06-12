@@ -1,8 +1,13 @@
 export interface User {
     id: string;
-    username: string;
-}
-
-export interface UserSchema {
+    name: string;
+    email: string;
+    roles: string[];
+    isBanned: boolean;
+  }
+  export interface UserSchema {
     authData?: User;
-}
+
+  }
+
+  

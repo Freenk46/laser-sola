@@ -12,23 +12,15 @@ import ChatLauncher from 'widgets/chatLauncher/ChatLauncher';
 import { initAuth } from 'features/AuthByUsername/model/services/initAuth';
 
 
-
-
-
 function App() {
     const { theme } = useTheme();
     const dispatch = useDispatch();
    
-
     useEffect(() => {
       dispatch(initAuth());
     }, [dispatch]);
     
-
-    useEffect(() => {
-        dispatch(userActions.initAuthData());
-    }, [dispatch]);
-
+ 
     return (
         <div className={classNames('app', {}, [theme])}>
             <div id="theme-overlay-root" style={{ position: 'fixed', inset: 0, zIndex: 2, pointerEvents: 'none' }} />
@@ -41,7 +33,6 @@ function App() {
                 <ChatLauncher />
                 <Footer />
             </Suspense>
-       
         </div>
     );
 }

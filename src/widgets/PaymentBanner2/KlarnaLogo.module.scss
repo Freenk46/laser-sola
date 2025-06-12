@@ -1,0 +1,21 @@
+.klarnaContainer {
+    background-color: #f472b6; // რჩება როგორც კონტრასტული აქცენტი
+    border-radius: 9999px;
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+  
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(244, 114, 182, 0.4); // ოდნავ მკვეთრი hover
+    }
+  }
+  
+  .klarnaText {
+    color: #1f2937; // მუქი ნაცრისფერი ნაცვლად პირდაპირ შავი — უფრო რბილი კონტრასტი
+    font-weight: 700;
+    font-size: 1.125rem;
+    letter-spacing: 0.03em;
+  }
+  

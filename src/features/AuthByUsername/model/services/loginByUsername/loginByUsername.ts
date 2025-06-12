@@ -3,7 +3,7 @@ import { User } from '../../types';
 import { setAccessToken, setRefreshToken } from '../authService';
 import { setAuthData } from '../../slice/authSlice';
 
-const BASE_URL = 'https://khsol-nest.onrender.com';
+const BASE_URL = 'http://localhost:5000';
 interface LoginParams {
   email: string;
   password: string;
@@ -35,7 +35,7 @@ export const loginByUsername = createAsyncThunk<
     setAccessToken(data.accessToken);
     setRefreshToken(data.refreshToken);
     thunkAPI.dispatch(setAuthData(data.user));
- 
+ debugger
     return data.user;
     
   } catch (err) {

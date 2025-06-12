@@ -38,8 +38,8 @@ const LHRPage = () => {
                     description="გადაყარეთ საპარსები. აღარ არის ეპილაცია. მიესალმეთ სამედიცინო კლასის ლაზერულ ეპილაციას და ისიამოვნეთ მზადყოფნის თავისუფლებით."
                     primaryBtn={{ text: 'გაიგე მეტი', href: '#benefits' }}
                     secondaryBtn={{ text: 'დაჯავშნე კონსულტაცია', href: '#consultation' }}
-                    textBackgroundColor="#fff0f3" // ✅ ღია ნაცრისფერი
-                    navBackgroundColor="#fff0f3" // ✅ ღია ნაცრისფერი
+                    textBackgroundColor="#FEE4B9" // ✅ ღია ნაცრისფერი
+                    navBackgroundColor="#FEE4B9" // ✅ ღია ნაცრისფერი
                     navLinks={[
                         { label: 'ჩვენს შესახებ', href: '#about' },
                         { label: 'უპირატესობები', href: '#BenefitsSection' },
@@ -48,7 +48,7 @@ const LHRPage = () => {
                         { label: 'მომხმარებელთა შეფასებები', href: '#Testimonials' },
 
                     ]}
-
+ 
                 />
             </section>
             <section id="about" className={styles.sectionSpacing}>

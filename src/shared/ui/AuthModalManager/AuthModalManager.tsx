@@ -1,36 +1,16 @@
-// AuthModalManager.tsx
 import React from 'react';
 import { UserLoginModal } from './ui/UserLoginModal/UserLoginModal';
 import { UserRegisterModal } from './ui/UserRegistrationModal/UserRegisterModal';
+import { useModalContext } from 'shared/context/ModalContext';
 
-export type AuthModalType = 'login' | 'register' | null;
+export const AuthModalManager = () => {
+  const { activeModal, openModal, closeModal } = useModalContext();
 
-type Props = {
-  activeModal: AuthModalType;
-  onClose: () => void;
-  onSwitchToLogin: () => void;
-  onSwitchToRegister: () => void;
-};
-
-export const AuthModalManager: React.FC<Props> = ({
-  activeModal,
-  onClose,
-  onSwitchToLogin,
-  onSwitchToRegister,
-}) => {
   return (
     <>
-      <UserLoginModal
-        isOpen={activeModal === 'login'}
-        onClose={onClose}
-        onSwitchToRegister={onSwitchToRegister}
-      />
+      <UserLoginModal/>
 
-      <UserRegisterModal
-        isOpen={activeModal === 'register'}
-        onClose={onClose}
-        onSwitchToLogin={onSwitchToLogin}
-      />
+      <UserRegisterModal/>
     </>
   );
 };

@@ -8,7 +8,7 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
-import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
+import { getLoginState } from '../../model/selectors/getLoginState';
 
 interface LoginFormProps {
     className?: string;

@@ -74,8 +74,8 @@ export const LaserHeroSection = () => {
 
                     {/* CTA buttons */}
                     <div className={styles.buttons}>
-                        <button className={styles.primaryBtn}>SEE ALL LASER HAIR REMOVAL</button>
-                        <button className={styles.secondaryBtn}>BOOK NOW</button>
+                        <button className={styles.primaryBtn}>იხილე ყველა პროცედურა</button>
+                        <button className={styles.secondaryBtn}>დაჯავშნე ახლა</button>
                     </div>
                 </div>
             </div>

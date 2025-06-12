@@ -7,6 +7,7 @@ import { AuthPage } from 'pages/AuthPage/ui/AuthPage';
 import LHRPage from 'pages/LHRPage/ui/LHRPage';
 import CosmetickInjectablePage from 'pages/CosmetickInjectablePage/CosmetickInjectablePage';
 import MainPage from 'pages/MainPage/ui/MainPage';
+import CartPage from 'pages/CartPage/ui/CartPage';
 
 
 export enum AppRoutes {
@@ -21,6 +22,8 @@ export enum AppRoutes {
     FAQ = 'FAQ',
     AUTH = 'auth',
 
+    CART = 'cart',
+
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
@@ -31,6 +34,7 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.CONTACT]: '/contact',
     [AppRoutes.FAQ]: '/FAQ',
     [AppRoutes.AUTH]: '/auth',
+    [AppRoutes.CART]: '/cart',
 
     [AppRoutes.NOT_FOUND]: '*',
 };
@@ -64,8 +68,14 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
         path: RoutePath.contact,
         element: <ContactPage />,
     },
+    [AppRoutes.CART]: {
+        path: RoutePath.cart,
+        element: <CartPage/>,
+    },
+    
     [AppRoutes.NOT_FOUND]: {
         path: RoutePath.not_found,
         element: <NotFoundPage />,
     },
+    
 };

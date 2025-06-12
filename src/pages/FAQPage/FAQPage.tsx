@@ -11,8 +11,11 @@ export const FAQPage = () => {
 
     const faqCategoryCards = [
         { name: 'Laser Hair Removal', image: '/images/123.png' },
-        { name: 'Skin', image: '/images/123.png' },
-        { name: 'Shop', image: '/images/123.png' },
+        { name: 'Skinskin treatments', image: '/images/123.png' },
+        { name: 'injections', image: '/images/123.png' },
+        { name: 'ონლაინ შეძენა', image: '/images/123.png' },
+       
+      
     ];
 
     const faqCategories = ['All', ...faqCategoryCards.map((cat) => cat.name)];
@@ -57,7 +60,7 @@ export const FAQPage = () => {
                 <FAQCategoryGrid
                     categories={faqCategoryCards}
                     activeCategory={activeCategory}
-                    onSelectCategory={setActiveCategory}
+                    onSelectCategory={setActiveCategory}    
                 />
             ) : (
                 <div className={cls.content}>

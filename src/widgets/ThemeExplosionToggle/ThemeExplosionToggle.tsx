@@ -38,7 +38,7 @@ export const ThemeExplosionToggle = () => {
         border: 'none',
         cursor: 'pointer',
         position: 'relative',
-        zIndex: 10,
+        zIndex: 1,
       }}
       aria-label="Toggle theme"
     >

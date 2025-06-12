@@ -6,6 +6,7 @@ import App from './app/App';
 import 'app/styles/index.scss';
 import './shared/config/i18n/i18n';
 import { ErrorBoundary } from './app/providers/ErrorBoundary';
+import { ModalProvider } from 'shared/context/ModalContext';
 
 export { ThemeProvider, useTheme } from './app/providers/ThemeProvider';
 
@@ -14,7 +15,9 @@ render(
         <BrowserRouter basename="/">
             <ErrorBoundary>
                 <ThemeProvider>
+                <ModalProvider>
                     <App />
+                    </ModalProvider>
                 </ThemeProvider>
             </ErrorBoundary>
         </BrowserRouter>

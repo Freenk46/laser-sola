@@ -1,8 +1,10 @@
 .marqueeWrapper {
-    background-color: #bfa178;
+    background: linear-gradient(to right, #b8d3b8, #a3c6a3, #b8d3b8);
     overflow: hidden;
     border-top: 2px solid #1d2a3a;
     border-bottom: 2px solid #1d2a3a;
+   
+    color: black;
 }
 
 .marquee {

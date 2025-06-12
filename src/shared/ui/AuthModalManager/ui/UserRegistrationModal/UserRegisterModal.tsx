@@ -6,19 +6,17 @@ import { registerUser } from 'features/RegisterUser/model/services/registerUser'
 import { resetRegisterState } from 'features/RegisterUser/model/slice/registerSlice';
 import { getRegisterState } from 'features/RegisterUser/model/selectors/getRegisterState';
 import { getAuthState } from 'features/AuthByUsername/model/selectors/getAuthState';
+import { useModalContext } from 'shared/context/ModalContext';
 
-type Props = {
-  isOpen: boolean;
-  onClose: () => void;
-  onSwitchToLogin?: () => void;
-};
-
-export const UserRegisterModal = ({ isOpen, onClose, onSwitchToLogin }: Props) => {
+export const UserRegisterModal = () => {
   const modalRef = useRef<HTMLDivElement>(null);
   const nameInputRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch<AppDispatch>();
 
-  const { loading, error, success } = useSelector(getRegisterState);
+  const { activeModal, closeModal, openModal } = useModalContext();
+  const isOpen = activeModal === 'register';
+
+  const { loading, error } = useSelector(getRegisterState);
   const { authData } = useSelector(getAuthState);
 
   const [formData, setFormData] = useState({
@@ -46,31 +44,31 @@ export const UserRegisterModal = ({ isOpen, onClose, onSwitchToLogin }: Props) =
 
   useEffect(() => {
     if (authData && isOpen) {
-      onClose();
+      closeModal();
     }
-  }, [authData, isOpen, onClose]);
+  }, [authData, isOpen, closeModal]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
-        onClose();
+        closeModal();
       }
     };
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     }
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [onClose, isOpen]);
+  }, [closeModal, isOpen]);
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') closeModal();
     };
     if (isOpen) {
       window.addEventListener('keydown', handleEsc);
     }
     return () => window.removeEventListener('keydown', handleEsc);
-  }, [onClose, isOpen]);
+  }, [closeModal, isOpen]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
@@ -125,10 +123,10 @@ export const UserRegisterModal = ({ isOpen, onClose, onSwitchToLogin }: Props) =
       }),
     );
   };
+
   const handleSocialRegistration = (provider: string) => {
     console.log(`რეგისტრაცია ${provider}-ით`);
-    // აქ იქნება სოციალური მედიის რეგისტრაციის ლოგიკა
-};
+  };
 
   if (!isOpen) return null;
 
@@ -138,72 +136,31 @@ export const UserRegisterModal = ({ isOpen, onClose, onSwitchToLogin }: Props) =
         <div className={styles.header}>
           <span className={styles.brand}>LaserSola</span>
           <h2>რეგისტრაცია</h2>
-          <button className={styles.close} onClick={onClose} aria-label="დახურვა">
-            ×
-          </button>
+          <button className={styles.close} onClick={closeModal} aria-label="დახურვა">×</button>
         </div>
 
-        
-
         <form className={styles.form} onSubmit={handleSubmit} noValidate>
-          <input
-            name="fullName"
-            type="text"
-            ref={nameInputRef}
-            value={formData.fullName}
-            onChange={handleInputChange}
-            placeholder="სახელი და გვარი"
-            required
-          />
+          <input name="fullName" type="text" ref={nameInputRef} value={formData.fullName} onChange={handleInputChange} placeholder="სახელი და გვარი" required />
           {errors.fullName && <div className={styles.errorMessage}>{errors.fullName}</div>}
 
-          <input
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            placeholder="ელ-ფოსტა"
-            required
-          />
+          <input name="email" type="email" value={formData.email} onChange={handleInputChange} placeholder="ელ-ფოსტა" required />
           {errors.email && <div className={styles.errorMessage}>{errors.email}</div>}
 
-          <input
-            name="password"
-            type={showPassword ? 'text' : 'password'}
-            value={formData.password}
-            onChange={handleInputChange}
-            placeholder="პაროლი"
-            required
-          />
+          <input name="password" type={showPassword ? 'text' : 'password'} value={formData.password} onChange={handleInputChange} placeholder="პაროლი" required />
           {errors.password && <div className={styles.errorMessage}>{errors.password}</div>}
 
-          <input
-            name="confirmPassword"
-            type={showPassword ? 'text' : 'password'}
-            value={formData.confirmPassword}
-            onChange={handleInputChange}
-            placeholder="გაიმეორეთ პაროლი"
-            required
-          />
-          {errors.confirmPassword && (
-            <div className={styles.errorMessage}>{errors.confirmPassword}</div>
-          )}
+          <input name="confirmPassword" type={showPassword ? 'text' : 'password'} value={formData.confirmPassword} onChange={handleInputChange} placeholder="გაიმეორეთ პაროლი" required />
+          {errors.confirmPassword && <div className={styles.errorMessage}>{errors.confirmPassword}</div>}
 
           <label className={styles.checkbox}>
-            <input
-              name="agreeTerms"
-              type="checkbox"
-              checked={formData.agreeTerms}
-              onChange={handleInputChange}
-              required
-            />
+            <input name="agreeTerms" type="checkbox" checked={formData.agreeTerms} onChange={handleInputChange} required />
             ვეთანხმები წესებს და პირობებს
           </label>
           {errors.agreeTerms && <div className={styles.errorMessage}>{errors.agreeTerms}</div>}
 
           {error && <div className={styles.errorMessage}>{error}</div>}
 
-          <button type="submit" disabled={loading}   className={styles.registerButton}>
+          <button type="submit" disabled={loading} className={styles.registerButton}>
             {loading ? 'რეგისტრაცია...' : 'რეგისტრაცია'}
           </button>
         </form>
@@ -211,14 +168,11 @@ export const UserRegisterModal = ({ isOpen, onClose, onSwitchToLogin }: Props) =
         <div className={styles.footer}>
           <span>
             უკვე გაქვს ანგარიში?{' '}
-            <a
-              href="#login"
-              onClick={(e) => {
-                e.preventDefault();
-                onClose();
-                onSwitchToLogin?.();
-              }}
-            >
+            <a href="#login" onClick={(e) => {
+              e.preventDefault();
+              closeModal();
+              openModal('login');
+            }}>
               შესვლა
             </a>
           </span>

@@ -1,10 +1,17 @@
 @font-face {
-    font-family: "BPG Classic Medium";
-    src: url("/public/fonts/bpg-classic-medium-webfont.ttf");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'NotoSansGeorgianCondensed';
+  src: url('/public/fonts/NotoSansGeorgian_Condensed-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
+
+@font-face {
+  font-family: 'NotoSansGeorgianCondensed';
+  src: url('/public/fonts/NotoSansGeorgian_Condensed-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 
 :root {
     --font-family-main: "BPG Classic Medium", consolas, "Times New Roman", serif;
@@ -42,67 +49,174 @@ $breakpoints: (
     }
 }
 .headerMainlight {
-    --bg-color: #ffffff;
-    --text-color: #111111;
-    --primary-color: #d4a373;
-    --border-color: #cccccc;
-    --dropdown-bg: #fefefe;
-  }
-  
-  .headerMaindark {
-    --bg-color: #111111;
-    --text-color: #eeeeee;
-    --primary-color: #d4a373;
-    --border-color: #444444;
-    --dropdown-bg: #1c1c1c;
-  }
+  --bg-color: #ffffff;              /* რბილი და ჰაეროვანი ფონური ფერი */
+  --text-color: #2E2E2E;            /* მკაფიო ძირითადი ტექსტი */
+  --border-color: #B5B5B5;          /* მსუბუქი მწვანე საზღვარი */
+  --primary-color: #12524F;         /* მთავარი აქცენტის ფერი – მდგრადი მწვანე */
+  --overlay-color: #FFFFFF;         /* overlay ფონი – უცვლელი */
+  --text-muted-color: #7C7C7C;      /* რბილი ტექსტისთვის */
+  --secondary-color: #B6D8C2; 
+  --nav-color:  #000000;   /* დამატებითი რბილი მწვანე ტონი */
+  --icon-color:   #000000;  /* დამატებითი რბილი მწვანე ტონი */
+}
 
-  .footerlight {
-    --bg-color: #ffffff;
-    --text-color: #111111;
-    --link-muted-color: #888888;
-    --link-hover-color: #111111;
-    --border-color: #dddddd;
-    --primary-color: #d4a373;
-  }
+.headerMaindark {
+  --bg-color: #1B1B1B;
+  --text-color: #F0F0F0;
+  --border-color: #3A3A3A;
+  --primary-color: #FFB5A7;
+  --overlay-color: #000000;
+  --text-muted-color: #AAAAAA;
+  --secondary-color: #3A2E2E;
+}
+
+.dropdownlight {
+  --bg-color: #F5F1EC ;                        /* სუფთა, რბილი ფონური ფერი */
+  --text-color: #2E2E2E;                      /* მკაფიო ტექსტისთვის */
+  --border-color: #B5B5B5 ;                    /* მსუბუქი გამყოფი ზოლები */
+  --dropdown-shadow-color: rgba(0, 0, 0, 0.05); /* რბილი ჩრდილი dropdown-სთვის */
+  --hover-bg-color: rgba(182, 216, 194, 0.1); /* hover-ზე რბილი ბუნებრივი ფონური ტონი */
+  --hover-text-color: #2E7D32;               /* hover ტექსტისთვის ბუნებრივი მწვანე */
+  --primary-color: #7a7979;                  /* მთავარი რბილი მწვანე ტონი */
+}
+
+.dropdowndark {
+  --bg-color: #2B1F1F;
+  --text-color: #F2F2F2;
+  --border-color: #3C2B2B;
+  --dropdown-shadow-color: rgba(0, 0, 0, 0.3);
+  --hover-bg-color: #3D2D2D;
+  --hover-text-color: #FFFFFF;
+  --primary-color: #F4A261;
+}
+
+.footerlight {
+  --bg-gradient-start: #ffffff;              /* მთავარი ფონური გრადიენტის დასაწყისი */
+  --bg-gradient-end: #ffffff;                /* გრადიენტის ბოლო */
+  --text-color: #000000;                     /* ტექსტის ფერი */
+  --border-color: #000000;                   /* საზღვრის ფერი */
+  --heading-line-start: #B6D8C2;             /* სათაურის ხაზის გრადიენტი (დასაწყისი) */
+  --heading-line-end: #89C498;               /* სათაურის ხაზის გრადიენტი (დასასრული) */
+  --muted-text-color: #5A5A5A;               /* რბილი ტექსტი და ლინკები */
+  --hover-text-color: #2E7D32;               /* hover-ზე ტექსტის ფერი */
+  --hover-bg-color: rgba(182, 216, 194, 0.1);/* hover-ზე ფონური ეფექტი */
+  --footer-bottom-border: #D3EAD5;           /* ქვედა ნაწილის საზღვარი */
   
-  .footerdark {
-    --bg-color: #111111;
-    --text-color: #eeeeee;
-    --link-muted-color: #aaaaaa;
-    --link-hover-color: #ffffff;
-    --border-color: #444444;
-    --primary-color: #d4a373;
-  }
-  
-  /* === TopBar === */
+}
+
+.footerdark {
+  --bg-color: #1A1A1A;
+  --text-color: #EEEEEE;
+  --link-muted-color: #AAAAAA;
+  --link-hover-color: #FFFFFF;
+  --border-color: #3A3A3A;
+  --primary-color: #D4A373;
+}
+
 .topBarlight {
-  --bg-color: #ffffff;
-  --text-color: #111111;
-  --primary-color: #d4a373;
+  --bg-color: #b8d3b8;              /* სუფთა, ჰაეროვანი ფონური ფერი */
+  --text-color: #000000;            /* მკაფიო ძირითადი ტექსტისთვის */
+  --text-muted-color: #7C7C7C;      /* რბილი ტექსტის ფერი */
+  --border-color: #000000;          /* მსუბუქი გამყოფი ტონი */
+  --primary-color: #ffffff;         /* მთავარი აქცენტის ფერი (მდგრადი მწვანე) */
+  --secondary-color: #B6D8C2;       /* რბილი ბუნებრივი დამატებითი ფერი */
 }
 
 .topBardark {
-  --bg-color: #111111;
-  --text-color: #eeeeee;
-  --primary-color: #d4a373;
+  --bg-color: #2C1E1E;
+  --text-color: #F1F1F1;
+  --text-muted-color: #AAAAAA;
+  --border-color: #3A3A3A;
+  --primary-color: #FF8B8B;
+  --secondary-color: #3B2E2E;
 }
 
-/* === Drawer === */
 .drawerlight {
-  --bg-color: #ffffff;
-  --text-color: #111111;
-  --border-color: #dddddd;
-  --secondary-color: #f9f9f9;
+  --bg-color: #F5F1EC;              /* ჰაეროვანი და სუფთა ფონური ტონი */
+  --text-color: #2E2E2E;            /* ძირითადი ტექსტის მუქი ნაცრისფერი */
+  --text-muted-color: #7C7C7C;      /* რბილი ტექსტისთვის */
+  --border-color: #D3EAD5;          /* მსუბუქი გამყოფი ხაზები */
+  --secondary-color: #B6D8C2;       /* ბუნებრივი აქცენტური ტონი */
 }
 
 .drawerdark {
-  --bg-color: #111111;
-  --text-color: #eeeeee;
-  --border-color: #444444;
-  --secondary-color: #1c1c1c;
+  --bg-color: #2B1F1F;
+  --text-color: #FFFFFF;
+  --text-muted-color: #B0B0B0;
+  --border-color: #3D3D3D;
+  --secondary-color: #3B2C2C;
 }
 
+.cartmodallight {
+  --bg-color: #F5FBF7;                      /* სუფთა და ჰაეროვანი ფონური ფერი */
+  --shadow-color: rgba(0, 0, 0, 0.05);      /* უფრო რბილი ჩრდილი */
+  --border-color: #D3EAD5;                  /* მსუბუქი გამყოფი */
+  --hover-bg-color: rgba(182, 216, 194, 0.1); /* hover ფონური ეფექტი */
+  --border-muted-color: #E4F3E8;            /* რბილი დამატებითი საზღვარი */
+  --border-strong-color: #89C498;           /* ფოკუსისთვის ძლიერი საზღვარი */
+  --text-color: #2E2E2E;                    /* ძირითადი ტექსტის ფერი */
+  --text-muted-color: #7C7C7C;              /* რბილი ტექსტის ფერი */
+  --danger-color: #E76F51;                  /* შენარჩუნებული – სიგნალი/საფრთხე */
+  --highlight-color: #33835C;               /* აქცენტი ან აქტიური ელემენტისთვის */
+  --button-bg: #33835C;                     /* ღილაკის ფონური ფერი */
+  --button-text: #FFFFFF;                   /* ღილაკის ტექსტი */
+  --button-hover-bg: #2E7D32;               /* ღილაკის hover-ზე მუქი ტონი */
+  --disabled-bg: #B6D8C2;                   /* ინაქტიური ღილაკი – რბილი მწვანე */;
+}
+
+.cartmodaldark {
+  --bg-color: #2C1F1F;
+  --shadow-color: rgba(0, 0, 0, 0.6);
+  --border-color: #3A3A3A;
+  --hover-bg-color: #3B2C2C;
+  --border-muted-color: #3F2F2F;
+  --border-strong-color: #6C4F4F;
+  --text-color: #F5F5F5;
+  --text-muted-color: #AAAAAA;
+  --danger-color: #FF6B6B;
+  --highlight-color: #FFD166;
+  --button-bg: #FFFFFF;
+  --button-text: #000000;
+  --button-hover-bg: #EEEEEE;
+  --disabled-bg: #555555;
+}
+
+.authmodallight {
+  --bg-color: #F5FBF7;                     /* ჰაეროვანი, ღია ფონი */
+  --text-color: #2E2E2E;                   /* მკაფიო ტექსტი */
+  --border-color: #D3EAD5;                 /* რბილი საზღვარი */
+  --secondary-color: #B6D8C2;              /* ბუნებრივი დამატებითი ფერი */
+  --overlay-color: rgba(0, 0, 0, 0.5);      /* ოდნავ რბილი შავი შრე */
+  --heading-color: #1F1F1F;                /* სათაურისთვის — ოდნავ გაძლიერებული ტექსტი */
+  --muted-text-color: #7C7C7C;             /* რბილი ტექსტისთვის */
+  --input-bg-color: #FFFFFF;               /* ინპუტის სტანდარტული ფონი — თეთრი */
+  --input-border-color: #B6D8C2;           /* რბილი მწვანე საზღვარი */
+  --error-color: #E76F51;                  /* ერორის ფერი – შენარჩუნებული სტანდარტულად */
+  --button-bg: #33835C;                    /* ღილაკის ბუნებრივი ფონური ტონი */
+  --button-text: #FFFFFF;                  /* ღილაკის ტექსტი */
+  --button-hover-bg: #2E7D32;              /* ღილაკის hover ფერი – მუქი მწვანე */
+  --shadow-color: rgba(0, 0, 0, 0.1);       /* რბილი ჩრდილი */
+  --divider-color: #D3EAD5;                /* გამყოფი — ემთხვევა საერთო პალიტრას */
+  
+}
+
+.authmodaldark {
+  --bg-color: #2C1F1F;
+  --text-color: #E0E0E0;
+  --border-color: #3A3A3A;
+  --secondary-color: #5C3E3E;
+  --overlay-color: rgba(255, 255, 255, 0.05);
+  --heading-color: #FFFFFF;
+  --muted-text-color: #AAAAAA;
+  --input-bg-color: #3A2C2C;
+  --input-border-color: #555555;
+  --error-color: #FF6B6B;
+  --button-bg: #FFF8F5;
+  --button-text: #1E1E1E;
+  --button-hover-bg: #FFE3DE;
+  --shadow-color: rgba(0, 0, 0, 0.6);
+  --divider-color: #444444;
+}
 
 
  

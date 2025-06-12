@@ -21,6 +21,7 @@ const HighlightSection = ({
     <section className={styles.section}>
         <div className={`${styles.wrapper} ${reverse ? styles.reverse : ''}`}>
             <div className={styles.videoWrapper}>
+                
                 <video
                     autoPlay
                     muted
@@ -28,10 +29,11 @@ const HighlightSection = ({
                     playsInline
                 >
                     <source src={videoSrc} type="video/mp4" />
-                    Your browser does not support the video tag.
+             
                 </video>
             </div>
 
+            
             <div className={styles.content}>
                 <h2 className={styles.heading}>{heading}</h2>
 
@@ -46,7 +48,8 @@ const HighlightSection = ({
                         {ctaText}
                     </a>
                 )}
-            </div>
+                   </div>
+      
         </div>
     </section>
 );
