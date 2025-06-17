@@ -46,9 +46,11 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
             <img src={image.src} alt={image.alt || ''} />
           </div>
         )}
-
+<div>
+  
+</div>
         <ul className={styles.dropdownList}>
-      
+        <p className={styles.dropdownImageCaption}>კატეგორიები</p>
           {items.map((item, index) => (
             <li
               key={index}

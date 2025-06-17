@@ -1,0 +1,57 @@
+.navigation {
+    width: 160px;
+    background-color: #ffffff;
+    margin-top: 30px;
+    min-height: 100vh;
+   
+  }
+  
+  .nav {
+
+
+  }
+  
+  .menuItem {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+ 
+    background-color: #ffffff;
+    color: #374151;
+    
+    &:hover {
+      background-color: #000000;
+      color: white;
+      
+      .chevron {
+        color: white;
+      }
+    }  &.after {
+        background-color: #ffffff;
+    }
+    
+    &.active {
+      background-color: #000000;
+      color: white;
+      
+      .chevron {
+        color: white;
+      }
+      
+    }
+  
+  }
+  
+  .menuLabel {
+    font-size: 0.875rem;
+    font-weight: 500;
+    
+  }
+  
+  .chevron {
+    color: #9ca3af;
+    transition: color 0.2s ease;
+  }

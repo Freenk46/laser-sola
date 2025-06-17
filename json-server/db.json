@@ -25,5 +25,21 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": { "name": "typicode" },
+
+  "bookings": [
+    {
+      "id": 1,
+      "date": "2025-06-15",
+      "time": "10:30"
+    },
+    {
+      "id": 2,
+      "date": "2025-06-15",
+      "time": "13:00"
+    }
+  ]
+
 }
+
+

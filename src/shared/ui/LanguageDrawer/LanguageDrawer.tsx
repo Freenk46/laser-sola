@@ -9,9 +9,9 @@ export const LanguageDrawer = () => {
   const [isLangOpen, setIsLangOpen] = useState(false);
   const { i18n } = useTranslation();
   const contextTheme = useTheme().theme;
-  const { activeModal, closeModal } = useModalContext();
+  const { isModalOpen, closeModal } = useModalContext();
 
-  const isOpen = activeModal === 'language';
+  const isOpen = isModalOpen('language');
   const appliedTheme = `drawer${contextTheme}`;
   const selectedLang = i18n.language.toUpperCase();
 
@@ -20,11 +20,11 @@ export const LanguageDrawer = () => {
   const handleLanguageSelect = (lang: string) => {
     i18n.changeLanguage(lang.toLowerCase());
     setIsLangOpen(false);
-    closeModal(); // დახურვა ენის არჩევის შემდეგ
+    closeModal('language'); // დახურვა ენის არჩევის შემდეგ
   };
 
   const handleOverlayClick = () => {
-    closeModal();
+    closeModal('language');
   };
 
   const stopPropagation = (e: React.MouseEvent) => {
@@ -34,11 +34,11 @@ export const LanguageDrawer = () => {
   if (!isOpen) return null;
 
   return (
-    <div className={styles.drawerOverlay} onClick={handleOverlayClick}>
+    <div className={styles.modalOverlay} data-modal-overlay="true">
       <div className={`${styles.drawer} ${appliedTheme}`} onClick={stopPropagation}>
         <div className={styles.header}>
           <h3>ენის არჩევა</h3>
-          <button onClick={closeModal}>✕</button>
+          <button onClick={() => closeModal('language')}>✕</button>
         </div>
 
         <p>აირჩიე ენა</p>

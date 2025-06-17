@@ -1,0 +1,52 @@
+.progressContainer {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: #eaedf3;
+}
+
+.progressSteps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.progressStep {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.stepButton {
+  padding: 0.5rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: #d1d5db;
+  color: #374151;
+  border-radius: 999px;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: #cbd5e1;
+  }
+
+  &.active {
+    background-color: #000;
+    color: white;
+  }
+
+  &.completed {
+    background-color: #b6d8c2;
+    color: #1f2937;
+  }
+}
+
+@media (max-width: 768px) {
+  .progressSteps {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -9,9 +9,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from 'features/AuthByUsername/model/services/logoutUser';
 import { getAuthData } from 'features/AuthByUsername/model/selectors/getAuthState';
 
-import CartModal, { CartItem } from '../CartModal/index';
+
 import { useModalContext } from 'shared/context/ModalContext';
 import DropdownMenu from '../DropdownMenu/DropdownMenu';
+import ProfileDropdownModal from 'pages/ProfilePage/ui/ProfileDropdown/ProfileDropdownModal';
+import { CartItem } from 'features/Cart/model/types/cartItem';
+import CartModal from 'features/Cart/ui/CartModal';
+
+
+
 
 interface HeaderMainProps {
   theme?: 'light' | 'dark';
@@ -45,13 +51,9 @@ const HeaderMain = ({ theme }: HeaderMainProps) => {
 
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const { isModalOpen, closeModal, openModal } = useModalContext();
-  const [cartItems, setCartItems] = useState<CartItem[]>([{
-    id: '1', tag: 'LHR', name: 'Lip & Chin', quantity: 1, price: 22.50
-  }, {
-    id: '2', tag: 'LHR', name: 'Face & Neck', quantity: 6, price: 270.00
-  }]);
+  const { toggleModal } = useModalContext();
 
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const nav = [
     { navItem: 'ლაზერული ეპილაცია', path: '/LHR' },
     { navItem: 'კოსმეტიკური ინექციები', path: '/injectables' },
@@ -122,13 +124,8 @@ const HeaderMain = ({ theme }: HeaderMainProps) => {
     }
   };
 
-  const handleRemoveItem = (itemId: string) => {
-    setCartItems(prevItems => prevItems.filter(item => item.id !== itemId));
-  };
 
-  const handleProceedToCheckout = () => {
-    console.log('Proceeding to checkout with items:', cartItems);
-  };
+
 
   return (
     <div className={`${styles.headerMain} ${appliedTheme}`}>
@@ -151,27 +148,35 @@ const HeaderMain = ({ theme }: HeaderMainProps) => {
       </nav>
 
       <div className={styles.right}>
-        <button onClick={() => openModal('language')} className={styles.langToggleMobile}>
+        <button onClick={() => toggleModal('language')} className={styles.langToggleMobile}>
           <Earth size={20} strokeWidth={1.2} />
         </button>
         <LanguageDrawer />
         <CartModal
-          items={cartItems}
-          onRemoveItem={handleRemoveItem}
-          onProceedToCheckout={handleProceedToCheckout}
         />
 
-        {authData ? (
-          <button onClick={() => dispatch(logoutUser())}>
-            <span style={{ marginRight: 4 }}>გამოსვლა</span><User size={20} />
-          </button>
-        ) : (
-          <button onClick={() => openModal('login')}>
-            <User  size={20} />
-          </button>
-        )}
+{!authData ? (
+  <>
+    <button onClick={() => toggleModal('profile')}>
+      <User size={20} />
+    </button>
+  </>
+) : (
+  <button onClick={() => toggleModal('login')}>
+    <User size={20} />
+  </button>
+)}
+<ProfileDropdownModal
+  onNavigate={(section) => {
+    if (section === 'logout') {
+      dispatch(logoutUser());
+    } else {
+      window.location.href = `/profile#${section}`;
+    }
+  }}
+/>
 
-        <button onClick={() => openModal('cart')}>
+        <button onClick={() => toggleModal('cart')}>
           <ShoppingBag  size={20} strokeWidth={1.2} />
         </button>
       </div>

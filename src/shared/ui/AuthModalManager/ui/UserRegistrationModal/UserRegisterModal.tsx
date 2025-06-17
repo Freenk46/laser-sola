@@ -13,8 +13,8 @@ export const UserRegisterModal = () => {
   const nameInputRef = useRef<HTMLInputElement>(null);
   const dispatch = useDispatch<AppDispatch>();
 
-  const { activeModal, closeModal, openModal } = useModalContext();
-  const isOpen = activeModal === 'register';
+  const { isModalOpen, closeModal, openModal } = useModalContext();
+  const isOpen = isModalOpen('register');
 
   const { loading, error } = useSelector(getRegisterState);
   const { authData } = useSelector(getAuthState);
@@ -44,14 +44,14 @@ export const UserRegisterModal = () => {
 
   useEffect(() => {
     if (authData && isOpen) {
-      closeModal();
+      closeModal('register');
     }
   }, [authData, isOpen, closeModal]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
-        closeModal();
+        closeModal('register');
       }
     };
     if (isOpen) {
@@ -62,7 +62,7 @@ export const UserRegisterModal = () => {
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closeModal();
+      if (e.key === 'Escape') closeModal('register');
     };
     if (isOpen) {
       window.addEventListener('keydown', handleEsc);
@@ -136,7 +136,7 @@ export const UserRegisterModal = () => {
         <div className={styles.header}>
           <span className={styles.brand}>LaserSola</span>
           <h2>რეგისტრაცია</h2>
-          <button className={styles.close} onClick={closeModal} aria-label="დახურვა">×</button>
+          <button className={styles.close} onClick={() => closeModal('register')} aria-label="დახურვა">×</button>
         </div>
 
         <form className={styles.form} onSubmit={handleSubmit} noValidate>
@@ -170,7 +170,7 @@ export const UserRegisterModal = () => {
             უკვე გაქვს ანგარიში?{' '}
             <a href="#login" onClick={(e) => {
               e.preventDefault();
-              closeModal();
+              closeModal('register');
               openModal('login');
             }}>
               შესვლა

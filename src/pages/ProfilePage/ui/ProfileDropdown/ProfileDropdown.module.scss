@@ -1,0 +1,174 @@
+// ====================
+// 🔧 Mixins
+// ====================
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin button-base {
+  width: 100%;
+  @include flex-center;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: background-color 0.15s ease-in-out;
+}
+
+@mixin shadow-lg {
+  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.15),
+              0 6px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+// ====================
+// 🧱 Overlay
+// ====================
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-top: 72px;
+  //background-color: rgba(0, 0, 0, 0.3);
+
+  z-index: 1000;
+  pointer-events: none;
+
+
+
+  &.open {
+    display: flex;
+    pointer-events: auto;
+  }  
+}
+
+// ====================
+// 📦 Dropdown box
+// ====================
+.dropdown {
+  margin-top: 24px;
+  position: relative;
+  right: 16px;
+  width: 16rem;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  z-index: 50;
+  @include shadow-lg;
+  animation: slideDown 0.2s ease-out;
+
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+
+  // ✅ აქ არის ისარი
+  &::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    right: 78px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent var(--bg-color, #000000) transparent;
+    z-index: 1001;
+    @include shadow-lg;
+    animation: slideDown 0.2s ease-out;
+    transition: top 0.3s ease;
+  }
+
+  &.scrolled {
+    transform: translateY(-40px);
+
+    &::before {
+      top: -12px; // ⬆️ ისარიც ზემოთ იწევს
+    }
+  }
+}
+
+
+.dropdownContent {
+  padding: 0.5rem 0;
+  padding-left: 1rem;
+}
+
+.menuItem {
+  @include button-base;
+  color: #374151;
+  padding-left: 0.5rem;
+
+  &:hover,
+  &:focus {
+    background-color: #f9fafb;
+    outline: none;
+  }
+
+  &:active {
+    background-color: #f1f5f9;
+  }
+}
+
+.menuIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.8rem;
+  color: #6b7280;
+}
+
+.menuLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.divider {
+  border-top: 1px solid #e5e7eb;
+  margin: 0.5rem 0;
+}
+
+.logoutButton {
+  @include button-base;
+  color: #dc2626;
+
+  &:hover,
+  &:focus {
+    background-color: #fef2f2;
+  }
+
+  &:active {
+    background-color: #fee2e2;
+  }
+
+  .menuIcon {
+    color: #dc2626;
+  }
+}
+
+// ====================
+// 🎬 Animation
+// ====================
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ====================
+// 📱 Responsive
+// ====================
+@media (max-width: 768px) {
+  .dropdown {
+    width: 14rem;
+    right: 12px;
+  }
+}

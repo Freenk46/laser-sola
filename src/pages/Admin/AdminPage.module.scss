@@ -1,0 +1,760 @@
+// Main Layout
+.container {
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  display: flex;
+}
+
+// Sidebar
+.sidebar {
+  width: 16rem;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  padding: 1rem;
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: block;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .navItem {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      transition: all 0.15s ease-in-out;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-size: 0.875rem;
+      color: #374151;
+
+      &:hover {
+        background-color: #f3f4f6;
+      }
+
+      &.active {
+        background-color: #dbeafe;
+        color: #1d4ed8;
+      }
+
+      .icon {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+  }
+}
+
+// Main Content
+.main {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.gridLayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+// Calendar
+.calendar {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+
+  .calendarHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+
+    .calendarTitle {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1f2937;
+    }
+
+    .navigationButtons {
+      display: flex;
+      gap: 0.5rem;
+
+      .navButton {
+        padding: 0.5rem;
+        background: none;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background-color 0.15s ease-in-out;
+
+        &:hover {
+          background-color: #f3f4f6;
+        }
+
+        .icon {
+          width: 1.25rem;
+          height: 1.25rem;
+        }
+      }
+    }
+  }
+
+  .weekDays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    .weekDay {
+      padding: 0.75rem;
+      text-align: center;
+      font-weight: 600;
+      color: #4b5563;
+      background-color: #f9fafb;
+      border-radius: 0.25rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  .calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+
+    .calendarDay {
+      padding: 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+
+      &:hover {
+        background-color: #eff6ff;
+      }
+
+      &.selected {
+        background-color: #dbeafe;
+        border-color: #3b82f6;
+      }
+
+      &.today {
+        box-shadow: 0 0 0 2px #93c5fd;
+      }
+
+      .dayContent {
+        text-align: center;
+
+        .dayNumber {
+          font-size: 0.875rem;
+          color: #374151;
+
+          &.todayNumber {
+            font-weight: 700;
+            color: #2563eb;
+          }
+        }
+
+        .bookingsBadge {
+          margin-top: 0.25rem;
+
+          .badge {
+            display: inline-block;
+            background-color: #8b5cf6;
+            color: white;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+          }
+        }
+      }
+    }
+
+    .emptyDay {
+      padding: 1rem;
+    }
+  }
+}
+
+// Day Details
+.dayDetails {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+
+  &.emptyState {
+    text-align: center;
+    color: #6b7280;
+  }
+
+  .dayHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    .dayTitle {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1f2937;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .icon {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+
+    .addButton {
+      background-color: #3b82f6;
+      color: white;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.5rem;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      transition: background-color 0.15s ease-in-out;
+
+      &:hover {
+        background-color: #2563eb;
+      }
+
+      .icon {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+  }
+
+  .emptyBookings {
+    text-align: center;
+    color: #6b7280;
+    padding: 2rem 0;
+  }
+
+  .bookingsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+// Booking Item
+.bookingItem {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  transition: background-color 0.15s ease-in-out;
+
+  &:hover {
+    background-color: #f9fafb;
+  }
+
+  .bookingHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+
+    .timeInfo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .icon {
+        width: 1rem;
+        height: 1rem;
+        color: #3b82f6;
+      }
+
+      .time {
+        font-weight: 600;
+        color: #2563eb;
+      }
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .durationBadge {
+        background-color: #f3e8ff;
+        color: #7c3aed;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+      }
+
+      .actionButton {
+        padding: 0.25rem;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: background-color 0.15s ease-in-out;
+
+        &.edit {
+          color: #3b82f6;
+
+          &:hover {
+            background-color: #dbeafe;
+          }
+        }
+
+        &.delete {
+          color: #ef4444;
+
+          &:hover {
+            background-color: #fee2e2;
+          }
+        }
+
+        .icon {
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+    }
+  }
+
+  .clientInfo {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .infoItem {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .icon {
+        width: 1rem;
+        height: 1rem;
+        color: #6b7280;
+      }
+
+      .name {
+        font-weight: 500;
+      }
+    }
+  }
+
+  .procedureInfo {
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    background-color: #f9fafb;
+    border-radius: 0.5rem;
+
+    .label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #374151;
+    }
+
+    .value {
+      font-size: 0.875rem;
+      color: #4b5563;
+    }
+  }
+}
+
+// Clients Page
+.clientsPage {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+
+  .clientsHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1f2937;
+    }
+
+    .stats {
+      font-size: 0.875rem;
+      color: #4b5563;
+    }
+  }
+
+  .tableContainer {
+    overflow-x: auto;
+
+    .table {
+      width: 100%;
+
+      .tableHeader {
+        border-bottom: 1px solid #e5e7eb;
+
+        .headerCell {
+          text-align: left;
+          padding: 0.75rem 1rem;
+          font-weight: 600;
+          color: #374151;
+        }
+      }
+
+      .tableBody {
+        .tableRow {
+          border-bottom: 1px solid #f3f4f6;
+          transition: background-color 0.15s ease-in-out;
+
+          &:hover {
+            background-color: #f9fafb;
+          }
+
+          .tableCell {
+            padding: 0.75rem 1rem;
+
+            &.nameCell {
+              .name {
+                font-weight: 500;
+                color: #1f2937;
+              }
+            }
+
+            &.textCell {
+              color: #4b5563;
+            }
+
+            .visitsBadge {
+              background-color: #dbeafe;
+              color: #1e40af;
+              padding: 0.25rem 0.5rem;
+              border-radius: 9999px;
+              font-size: 0.875rem;
+            }
+
+            .detailsButton {
+              background-color: #3b82f6;
+              color: white;
+              padding: 0.25rem 0.75rem;
+              border-radius: 0.25rem;
+              border: none;
+              cursor: pointer;
+              font-size: 0.875rem;
+              transition: background-color 0.15s ease-in-out;
+
+              &:hover {
+                background-color: #2563eb;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Modal Styles
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+
+  .modalContent {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+
+    &.small {
+      width: 24rem;
+    }
+
+    &.large {
+      width: 66.666667%;
+      max-width: 56rem;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+  }
+
+  .modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    .modalTitle {
+      font-size: 1.125rem;
+      font-weight: 600;
+
+      &.large {
+        font-size: 1.25rem;
+      }
+    }
+
+    .closeButton {
+      color: #6b7280;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.15s ease-in-out;
+
+      &:hover {
+        color: #374151;
+      }
+
+      .icon {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+  }
+
+  .formFields {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .field {
+      .label {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+        color: #374151;
+      }
+
+      .input,
+      .select {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+
+        &:focus {
+          outline: none;
+          border-color: #3b82f6;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+      }
+    }
+  }
+
+  .modalActions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+
+    .button {
+      flex: 1;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      transition: background-color 0.15s ease-in-out;
+
+      &.primary {
+        background-color: #3b82f6;
+        color: white;
+
+        &:hover {
+          background-color: #2563eb;
+        }
+      }
+
+      &.secondary {
+        background-color: #6b7280;
+        color: white;
+
+        &:hover {
+          background-color: #4b5563;
+        }
+      }
+
+      .icon {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+  }
+}
+
+// Client Details Modal
+.clientDetails {
+  .detailsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .infoCard {
+      padding: 1rem;
+      border-radius: 0.5rem;
+
+      &.personal {
+        background-color: #f9fafb;
+      }
+
+      &.stats {
+        background-color: #eff6ff;
+      }
+
+      .cardTitle {
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: #1f2937;
+      }
+
+      .infoList {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+
+        .infoItem {
+          .label {
+            font-weight: 500;
+            color: #374151;
+          }
+
+          .value {
+            color: #4b5563;
+          }
+        }
+      }
+    }
+  }
+
+  .historyGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .historySection {
+      .sectionTitle {
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #1f2937;
+
+        .icon {
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+
+      .historyList {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        max-height: 15rem;
+        overflow-y: auto;
+
+        .emptyMessage {
+          color: #6b7280;
+          font-size: 0.875rem;
+        }
+
+        .historyItem {
+          padding: 0.75rem;
+          border-radius: 0.5rem;
+          font-size: 0.875rem;
+
+          &.completed {
+            background-color: #f0fdf4;
+          }
+
+          &.upcoming {
+            background-color: #eff6ff;
+          }
+
+          .itemContent {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            .itemInfo {
+              .procedure {
+                font-weight: 500;
+                color: #1f2937;
+              }
+
+              .datetime {
+                color: #4b5563;
+                margin-top: 0.25rem;
+              }
+            }
+
+            .statusBadge {
+              padding: 0.25rem 0.5rem;
+              border-radius: 0.25rem;
+              font-size: 0.75rem;
+
+              &.completed {
+                background-color: #dcfce7;
+                color: #166534;
+              }
+
+              &.booked {
+                background-color: #dbeafe;
+                color: #1e40af;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+

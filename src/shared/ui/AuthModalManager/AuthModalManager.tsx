@@ -4,7 +4,7 @@ import { UserRegisterModal } from './ui/UserRegistrationModal/UserRegisterModal'
 import { useModalContext } from 'shared/context/ModalContext';
 
 export const AuthModalManager = () => {
-  const { activeModal, openModal, closeModal } = useModalContext();
+  const { openModal, closeModal } = useModalContext();
 
   return (
     <>

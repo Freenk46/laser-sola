@@ -18,14 +18,14 @@ export const UserLoginModal = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [showPassword, setShowPassword] = useState(false);
 
-  const { activeModal, closeModal, openModal } = useModalContext();
-  const isOpen = activeModal === 'login';
+  const { isModalOpen, closeModal, openModal } = useModalContext();
+  const isOpen = isModalOpen('login');
 
   const { email, password, isLoading, error } = useSelector(getLoginState);
   const { authData } = useSelector(getAuthState);
 
-         const contextTheme = useTheme().theme;
-          const appliedTheme = `authmodal${ contextTheme}`;
+  const contextTheme = useTheme().theme;
+  const appliedTheme = `authmodal${contextTheme}`;
 
   // Autofocus
   useEffect(() => {
@@ -38,7 +38,7 @@ export const UserLoginModal = () => {
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
-        closeModal();
+        closeModal('login');
       }
     };
     if (isOpen) {
@@ -50,7 +50,7 @@ export const UserLoginModal = () => {
   // Close on ESC
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closeModal();
+      if (e.key === 'Escape') closeModal('login');
     };
     if (isOpen) {
       window.addEventListener('keydown', handleEsc);
@@ -70,7 +70,7 @@ export const UserLoginModal = () => {
   useEffect(() => {
     if (authData && isOpen) {
       toast.success('შესვლა წარმატებულია');
-      closeModal();
+      closeModal('login');
     }
   }, [authData, isOpen, closeModal]);
 
@@ -90,12 +90,15 @@ export const UserLoginModal = () => {
       <div ref={modalRef} className={`${styles.authmodal} ${appliedTheme}`} tabIndex={-1}>
         <div className={styles.header}>
           <span className={styles.brand}>LaserSola</span>
-          <button className={styles.close} onClick={closeModal} aria-label="დახურვა">
+          <button
+            className={styles.close}
+            onClick={() => closeModal('login')}
+            aria-label="დახურვა"
+          >
             ×
           </button>
         </div>
 
-        {/* Social login */}
         <div className={styles.social}>
           <button className={`${styles.socialBtn} ${styles.googleBtn}`} onClick={() => handleSocialRegistration('Google')}>
             <span className={styles.icon}>🌐</span> Google-ით რეგისტრაცია
@@ -108,7 +111,6 @@ export const UserLoginModal = () => {
           </button>
         </div>
 
-        {/* Login form */}
         <form className={styles.form} onSubmit={handleSubmit} noValidate>
           <div className={styles.inputGroup}>
             <input
@@ -152,7 +154,6 @@ export const UserLoginModal = () => {
           </button>
         </form>
 
-        {/* Footer */}
         <div className={styles.footer}>
           <span>
             არ ხართ დარეგისტრირებული?{' '}
@@ -160,7 +161,7 @@ export const UserLoginModal = () => {
               href="#register"
               onClick={(e) => {
                 e.preventDefault();
-                closeModal();
+                closeModal('login');
                 openModal('register');
               }}
             >

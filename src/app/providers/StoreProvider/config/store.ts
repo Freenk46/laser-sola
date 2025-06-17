@@ -6,6 +6,7 @@ import authReducer from 'features/AuthByUsername/model/slice/authSlice';
 import registerUserReducer from 'features/RegisterUser/model/slice/registerSlice';
 import { contentApi } from 'features/content/model/api/contentApi';
 import { StateSchema } from './StateSchema';
+import cartReducer from 'features/Cart/model/slice/cartSlice';
 
 const rootReducers: ReducersMapObject<StateSchema> = {
     counter: counterReducer,
@@ -13,6 +14,7 @@ const rootReducers: ReducersMapObject<StateSchema> = {
     loginForm: loginReducer,
     registerUser: registerUserReducer,
     auth: authReducer,
+     cart: cartReducer,
     [contentApi.reducerPath]: contentApi.reducer,
 };
 

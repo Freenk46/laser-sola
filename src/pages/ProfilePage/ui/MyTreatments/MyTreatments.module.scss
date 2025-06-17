@@ -1,0 +1,55 @@
+.myTreatments {
+    padding: 2rem;
+    background-color: #ffffff;
+    min-height: 100vh;
+  }
+  
+  .header {
+    margin-bottom: 2rem;
+  }
+  
+  .title {
+    font-size: 2.25rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    color: #000000;
+    line-height: 1.2;
+  }
+  
+  .subtitle {
+    color: #6b7280;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    margin: 0;
+  }
+  
+  .emptyState {
+    background-color: #f3f4f6;
+    padding: 3rem 2rem;
+    text-align: center;
+    border-radius: 0;
+    margin-top: 1rem;
+  }
+  
+  .emptyMessage {
+    color: #374151;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+  
+  .buyButton {
+    background-color: #000000;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    letter-spacing: 0.025em;
+    
+    &:hover {
+      background-color: #1f2937;
+    }
+  }

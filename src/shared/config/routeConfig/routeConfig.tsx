@@ -7,7 +7,10 @@ import { AuthPage } from 'pages/AuthPage/ui/AuthPage';
 import LHRPage from 'pages/LHRPage/ui/LHRPage';
 import CosmetickInjectablePage from 'pages/CosmetickInjectablePage/CosmetickInjectablePage';
 import MainPage from 'pages/MainPage/ui/MainPage';
-import CartPage from 'pages/CartPage/ui/CartPage';
+import CartPage from 'pages/CartPage/CartPage';
+import ProfilePage from 'pages/ProfilePage/ProfilePage';
+import BookingPage from 'features/Booking/ui/BookingPage';
+import LaserEpilationAdmin from 'pages/Admin/AdminPage';
 
 
 export enum AppRoutes {
@@ -23,6 +26,11 @@ export enum AppRoutes {
     AUTH = 'auth',
 
     CART = 'cart',
+    PROFILE = 'profile',
+
+    BOOKING = 'booking',
+
+    ADMIN='admin'
 
 }
 
@@ -35,6 +43,11 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.FAQ]: '/FAQ',
     [AppRoutes.AUTH]: '/auth',
     [AppRoutes.CART]: '/cart',
+    [AppRoutes.PROFILE]: '/profile',
+    [AppRoutes.BOOKING]: '/booking',
+
+
+        [AppRoutes.ADMIN]: '/admin',
 
     [AppRoutes.NOT_FOUND]: '*',
 };
@@ -71,6 +84,18 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.CART]: {
         path: RoutePath.cart,
         element: <CartPage/>,
+    },
+    [AppRoutes.PROFILE]: {
+        path: RoutePath.profile,
+        element: <ProfilePage />,
+    },
+      [AppRoutes.BOOKING]: {
+        path: RoutePath.booking,
+        element: <BookingPage />,
+    },
+       [AppRoutes.ADMIN]: {
+        path: RoutePath.admin,
+        element: <LaserEpilationAdmin />,
     },
     
     [AppRoutes.NOT_FOUND]: {
